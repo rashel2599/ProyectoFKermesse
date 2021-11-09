@@ -1,0 +1,100 @@
+﻿@model IEnumerable<ProyectoFinalKermesse.Models.Kermesse>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaModificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaEliminacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parroquia1.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario1.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario2.userName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaModificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaEliminacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parroquia1.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario1.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario2.userName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idKermesse }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idKermesse }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idKermesse })
+        </td>
+    </tr>
+}
+
+</table>

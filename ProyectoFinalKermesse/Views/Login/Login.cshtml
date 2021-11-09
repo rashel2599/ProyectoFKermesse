@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<form action="@Url.Content("~/Login/Login")" method="post">
+    
+    <div style="position:relative; display:inline-block">
+        <img src="~/fonts/BannersKermesse/Login5.png" alt="BannerLogin">
+        <div style="position:absolute; top: 20px; right: 250px">
+            <h3 style="color:#FFFFFF; font-family:Roboto"> Iniciar sesión </h3>
+
+        </div>
+
+        <div style="position:absolute; top: 200px; left: 750px">
+
+            <div class="input-group" style="width: 500px">
+                <span class="input-group-addon" style="color: #779FA1; width: 100px">Usuario </span>
+                <input required name="User" type="text" class="form-control" placeholder="Ingrese su usuario">
+            </div>
+
+        </div>
+
+        <div style="position:absolute; top: 250px; left: 750px">
+
+            <div class="input-group" style="width: 800px">
+                <span class="input-group-addon" style="color: #779FA1; width: 100px">Contraseña</span>
+                <input required name="Pwd" type="password" class="form-control" placeholder="Ingrese su contraseña">
+            </div>
+
+        </div>
+
+
+
+        <div style="position:absolute; top: 400px; left: 920px">
+
+            
+
+            <button class="btn-primary" type="submit" style="background-color: #779FA1; color: #FFFFFF; border:none; border-radius: 5px; width: 100px">
+                Ingresar
+            </button>
+
+
+
+        </div>
+
+
+        <div style="position:absolute; top: 300px; left: 850px">
+          
+
+            <h3 style="color: #FFFFFF; font-family: Roboto; font-size: 18px; text-align: center; float: inline-start">@ViewBag.Error</h3>
+
+        </div>
+
+        </div>
+</form>
+
+
+
+
+
+
+

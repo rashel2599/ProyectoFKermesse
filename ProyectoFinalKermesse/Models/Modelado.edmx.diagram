@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="023765a664734160a94cac80f4acb0f3" Name="Diagram1">
+        <EntityTypeShape EntityType="BDKermesseModel.ArqueoCaja" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.ArqueoCajaDet" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.CategoriaGasto" Width="1.5" PointX="3.75" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.CategoriaProducto" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Comunidad" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.ControlBono" Width="1.5" PointX="3" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Denominacion" Width="1.5" PointX="6" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Gasto" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.IngresoComunidad" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.IngresoComunidadDet" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Kermesse" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.ListaPrecio" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.ListaPrecioDet" Width="1.5" PointX="7.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Moneda" Width="1.5" PointX="3.75" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Opcion" Width="1.5" PointX="3.75" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Parroquia" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Producto" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Rol" Width="1.5" PointX="3.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.RolOpcion" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.RolUsuario" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.TasaCambio" Width="1.5" PointX="6" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.TasaCambioDet" Width="1.5" PointX="8.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDKermesseModel.Usuario" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="BDKermesseModel.FK__ArqueoCaj__arque__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ArqueoCaj__kerme__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ArqueoCaj__usuar__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ArqueoCaj__usuar__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ArqueoCaj__usuar__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ArqueoCaj__denom__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ArqueoCaj__moned__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Gasto__catGasto__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Producto__catPro__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__IngresoCo__comun__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Producto__comuni__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__IngresoCom__bono__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Denominac__moned__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Gasto__kermesse__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Gasto__usuarioCr__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Gasto__usuarioEl__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Gasto__usuarioMo__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__IngresoCo__ingre__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__IngresoCo__kerme__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__IngresoCo__produ__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__IngresoCo__usuar__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__IngresoCo__usuar__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__IngresoCo__usuar__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Kermesse__parroq__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Kermesse__usuari__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Kermesse__usuari__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__Kermesse__usuari__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ListaPrec__kerme__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ListaPrec__lista__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__ListaPrec__produ__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__TasaCambi__moned__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__TasaCambi__moned__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__RolOpcion__opcio__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__RolOpcion__rol__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__RolUsuario__rol__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__RolUsuari__usuar__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="BDKermesseModel.FK__TasaCambi__tasaC__571DF1D5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

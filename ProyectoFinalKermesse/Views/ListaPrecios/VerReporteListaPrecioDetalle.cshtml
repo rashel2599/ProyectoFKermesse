@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProyectoFinalKermesse.Models.ListaPrecio>
+
+@{
+    ViewBag.Title = "VerReporteListaPrecioDetalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>VerReporteListaPrecioDetalle</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kermesse1.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kermesse1.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idListaPrecio }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idListaPrecio }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idListaPrecio })
+        </td>
+    </tr>
+}
+
+</table>

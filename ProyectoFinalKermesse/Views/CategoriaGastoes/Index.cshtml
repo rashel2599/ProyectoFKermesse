@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ProyectoFinalKermesse.Models.CategoriaGasto>
+
+@{
+    ViewBag.Title = "Categorías de Gastos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"><a href="#">  @Html.ActionLink("Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+
+    </ol>
+</div>
+
+
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <img src="~/fonts/BannersKermesse/6.png" alt="Banner 6">
+
+    </div>
+
+</div>
+
+
+
+<div class="container">
+
+
+
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <p>
+                Buscar por nombre: @Html.TextBox("valorBusq")
+                <input type="submit" value="Buscar" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold"/>
+            </p>
+        </div>
+
+    }
+    <div class="dropdown" style=" left: 1000px">
+        <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+            &nbsp;
+            Exportar a
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteCatGasto", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteCatGasto", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteCatGasto", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
+
+        </ul>
+    </div>
+    <hr />
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreCategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreCategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>*@
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idCatGasto }, new { @style = "color: #779FA1" })
+                <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                @Html.ActionLink("Detalles", "Details", new { id = item.idCatGasto }, new { @style = "color: #779FA1" }) |
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idCatGasto }, new { @style = "color: #779FA1" }) |
+                <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
+                @Html.ActionLink("Ver Reporte", "VerReporteCatGastoDetalle", new { id = item.idCatGasto }, new { @style = "color: #779FA1" })
+            </td>
+            </tr>
+        }
+
+    </table>
+
+    <hr />
+
+    <p>
+        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+            @Html.ActionLink("Agregar nuevo", "Create", "CategoriaGastoes", new { @style = "color:white;" })
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+        </button>
+    </p>
+
+</div>

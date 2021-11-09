@@ -1,0 +1,97 @@
+﻿@model ProyectoFinalKermesse.Models.Parroquia
+
+@{
+    ViewBag.Title = "Eliminar Parroquia ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Parroquias", "Index", "Parroquias", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"> Eliminar  </li>
+    </ol>
+</div> 
+
+
+<div class="container">
+    <h2>Eliminar</h2>
+    <h3>Parroquia </h3>
+    <h3>¿Esta seguro que desea eliminar esto?</h3>
+    <div>
+
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.parroco)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.parroco)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.logo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.logo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sitioWeb)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sitioWeb)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <button class="btn-primary" style="background-color: #779FA1">
+                    <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+                    @Html.ActionLink("Regresar", "Index", "Parroquias", new { @style = "color:white;" })
+                </button>
+
+                <button type="submit" class="btn-primary" style="background-color: red">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+                    Eliminar
+                </button>
+
+            </div>
+        }
+    </div>
+    </div> 
