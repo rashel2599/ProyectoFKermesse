@@ -1,0 +1,59 @@
+﻿@model ProyectoFinalKermesse.Models.IngresoComunidadDet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IngresoComunidadDet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.denominacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.denominacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.subTotalBono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subTotalBono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControlBono.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlBono.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IngresoComunidad1.idIngresoComunidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IngresoComunidad1.idIngresoComunidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idIngresoComunidadDet }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

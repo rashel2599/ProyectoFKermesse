@@ -1,0 +1,43 @@
+﻿@model ProyectoFinalKermesse.Models.ListaPrecioDet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ListaPrecioDet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.precioVenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioVenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ListaPrecio1.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ListaPrecio1.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto1.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto1.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idListaPrecioDet }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

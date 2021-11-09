@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoFinalKermesse.Models.IngresoComunidadDet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.denominacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subTotalBono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControlBono.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IngresoComunidad1.idIngresoComunidad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.denominacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subTotalBono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlBono.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IngresoComunidad1.idIngresoComunidad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idIngresoComunidadDet }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idIngresoComunidadDet }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idIngresoComunidadDet })
+        </td>
+    </tr>
+}
+
+</table>

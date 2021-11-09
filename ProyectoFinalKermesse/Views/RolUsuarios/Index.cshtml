@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProyectoFinalKermesse.Models.RolUsuario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Rol1.rolDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario1.userName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rol1.rolDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario1.userName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idRolUsuario }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idRolUsuario }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idRolUsuario })
+        </td>
+    </tr>
+}
+
+</table>

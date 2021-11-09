@@ -1,0 +1,35 @@
+﻿@model ProyectoFinalKermesse.Models.RolOpcion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RolOpcion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Opcion1.opcionDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opcion1.opcionDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rol1.rolDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rol1.rolDescripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idRolOpcion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
