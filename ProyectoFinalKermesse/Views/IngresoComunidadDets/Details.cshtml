@@ -1,59 +1,80 @@
 ﻿@model ProyectoFinalKermesse.Models.IngresoComunidadDet
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalle de Ingreso de Comunidad";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>IngresoComunidadDet</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.denominacion)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.denominacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.cantidad)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.subTotalBono)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.subTotalBono)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ControlBono.nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ControlBono.nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IngresoComunidad1.idIngresoComunidad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IngresoComunidad1.idIngresoComunidad)
-        </dd>
-
-    </dl>
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Detalle de Ingreso de Comunidad", "Index", "IngresoComunidadDets", new { area = "" }, new { @style = "color: #779FA1" })   </a></li>
+        <li class="active"> Detalle  </li>
+    </ol>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idIngresoComunidadDet }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="container">
+    <h2>Detalles</h2>
+    <h3> Detalle de Ingreso de Comunidad</h3>
+
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.denominacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.denominacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cantidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.subTotalBono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.subTotalBono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ControlBono.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ControlBono.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IngresoComunidad1.idIngresoComunidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IngresoComunidad1.idIngresoComunidad)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        <button class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Regresar", "Index", "IngresoComunidadDets", new { @style = "color:white;" })
+        </button>
+
+        <button type="submit" class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idIngresoComunidadDet }, new { @style = "color:white;" })
+        </button>
+    </p>
+</div> 

@@ -1,25 +1,37 @@
 ﻿@model ProyectoFinalKermesse.Models.Kermesse
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Kermesse";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<div>
+
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Kermesse", "Index", "Kermesses", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"> Editar  </li>
+    </ol>
+</div>
+
+<div class="container">
+    <h2>Editar</h2>
+    <h3>Kermesse</h3>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+
 <div class="form-horizontal">
-    <h4>Kermesse</h4>
+
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.idKermesse)
 
     <div class="form-group">
-        @Html.LabelFor(model => model.parroquia, "parroquia", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.parroquia, "Parroquia", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("parroquia", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.parroquia, "", new { @class = "text-danger" })
@@ -60,7 +72,7 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.usuarioModificacion, "usuarioModificacion", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.usuarioModificacion, "Usuario Modificacion", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("usuarioModificacion", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.usuarioModificacion, "", new { @class = "text-danger" })
@@ -79,18 +91,21 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.fechaCreacion)
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
+    <button class="btn-primary" style="background-color: #779FA1">
+        <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+        @Html.ActionLink("Regresar", "Index", "Kermesse", new { @style = "color:white;" })
+    </button>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <button type="submit" class="btn-primary" style="background-color: #779FA1">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+        Editar
+    </button>
+</div>}
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+</div> 

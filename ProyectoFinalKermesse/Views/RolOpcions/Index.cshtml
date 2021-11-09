@@ -1,40 +1,82 @@
 ﻿@model IEnumerable<ProyectoFinalKermesse.Models.RolOpcion>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Rol Opcion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Opcion1.opcionDescripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rol1.rolDescripcion)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Opcion1.opcionDescripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rol1.rolDescripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idRolOpcion }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idRolOpcion }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idRolOpcion })
-        </td>
-    </tr>
-}
+<div>
 
-</table>
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"><a href="#">  @Html.ActionLink("Rol Opcion", "Index", "RolOpcions", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+
+    </ol>
+</div>
+
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <img src="~/fonts/BannersKermesse/14.png" alt="Banner 6">
+
+    </div>
+
+</div>
+
+
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Opcion1.opcionDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rol1.rolDescripcion)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opcion1.opcionDescripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rol1.rolDescripcion)
+                </td>
+                <td>
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idRolOpcion }, new { @style = "color: #779FA1;" })
+                    </button>
+
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idRolOpcion }, new { @style = "color: #779FA1;" })
+                    </button>
+
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idRolOpcion }, new { @style = "color: #779FA1;" })
+                    </button>
+
+
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+    <hr />
+
+    <p>
+        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+            @Html.ActionLink("Agregar nuevo", "Create", "RolOpcions", new { @style = "color:white;" })
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+        </button>
+    </p>
+    </div> 

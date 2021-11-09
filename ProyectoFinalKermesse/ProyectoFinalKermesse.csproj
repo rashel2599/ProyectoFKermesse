@@ -151,6 +151,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriaGastoesController.cs" />
     <Compile Include="Controllers\CategoriaProductoesController.cs" />
+    <Compile Include="Controllers\ComunidadsController.cs" />
+    <Compile Include="Controllers\ControlBonoesController.cs" />
     <Compile Include="Controllers\GastoesController.cs" />
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\IngresoComunidadDetsController.cs" />
@@ -164,6 +166,7 @@
     <Compile Include="Controllers\ParroquiasController.cs" />
     <Compile Include="Controllers\ProductoesController.cs" />
     <Compile Include="Controllers\RolOpcionsController.cs" />
+    <Compile Include="Controllers\RolsController.cs" />
     <Compile Include="Controllers\RolUsuariosController.cs" />
     <Compile Include="Controllers\TasaCambioDetsController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -438,6 +441,23 @@
     <Content Include="Views\Gastoes\Details.cshtml" />
     <Content Include="Views\Gastoes\Edit.cshtml" />
     <Content Include="Views\Gastoes\Index.cshtml" />
+    <Content Include="Views\ControlBonoes\Create.cshtml" />
+    <Content Include="Views\ControlBonoes\Delete.cshtml" />
+    <Content Include="Views\ControlBonoes\Details.cshtml" />
+    <Content Include="Views\ControlBonoes\Edit.cshtml" />
+    <Content Include="Views\ControlBonoes\Index.cshtml" />
+    <Content Include="Views\Rols\Create.cshtml" />
+    <Content Include="Views\Rols\Delete.cshtml" />
+    <Content Include="Views\Rols\Details.cshtml" />
+    <Content Include="Views\Rols\Edit.cshtml" />
+    <Content Include="Views\Rols\Index.cshtml" />
+    <Content Include="Views\Comunidads\Create.cshtml" />
+    <Content Include="Views\Comunidads\Delete.cshtml" />
+    <Content Include="Views\Comunidads\Details.cshtml" />
+    <Content Include="Views\Comunidads\Edit.cshtml" />
+    <Content Include="Views\Comunidads\Index.cshtml" />
+    <Content Include="Views\Kermesses\VerReporteKermesse.cshtml" />
+    <Content Include="Views\Kermesses\VerReporteKermesseDetalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

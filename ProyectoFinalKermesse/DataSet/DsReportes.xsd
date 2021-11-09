@@ -88,6 +88,19 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Kermesse" msprop:Generator_TableClassName="KermesseDataTable" msprop:Generator_TableVarName="tableKermesse" msprop:Generator_RowChangedName="KermesseRowChanged" msprop:Generator_TablePropName="Kermesse" msprop:Generator_RowDeletingName="KermesseRowDeleting" msprop:Generator_RowChangingName="KermesseRowChanging" msprop:Generator_RowEvHandlerName="KermesseRowChangeEventHandler" msprop:Generator_RowDeletedName="KermesseRowDeleted" msprop:Generator_RowClassName="KermesseRow" msprop:Generator_UserTableName="Kermesse" msprop:Generator_RowEvArgName="KermesseRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idKermesse" msprop:Generator_ColumnVarNameInTable="columnidKermesse" msprop:Generator_ColumnPropNameInRow="idKermesse" msprop:Generator_ColumnPropNameInTable="idKermesseColumn" msprop:Generator_UserColumnName="idKermesse" type="xs:short" minOccurs="0" />
+              <xs:element name="parroquia" msprop:Generator_ColumnVarNameInTable="columnparroquia" msprop:Generator_ColumnPropNameInRow="parroquia" msprop:Generator_ColumnPropNameInTable="parroquiaColumn" msprop:Generator_UserColumnName="parroquia" type="xs:short" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="fInicio" msprop:Generator_ColumnVarNameInTable="columnfInicio" msprop:Generator_ColumnPropNameInRow="fInicio" msprop:Generator_ColumnPropNameInTable="fInicioColumn" msprop:Generator_UserColumnName="fInicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fFinal" msprop:Generator_ColumnVarNameInTable="columnfFinal" msprop:Generator_ColumnPropNameInRow="fFinal" msprop:Generator_ColumnPropNameInTable="fFinalColumn" msprop:Generator_UserColumnName="fFinal" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="usuarioCreacion" msprop:Generator_ColumnVarNameInTable="columnusuarioCreacion" msprop:Generator_ColumnPropNameInRow="usuarioCreacion" msprop:Generator_ColumnPropNameInTable="usuarioCreacionColumn" msprop:Generator_UserColumnName="usuarioCreacion" type="xs:short" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

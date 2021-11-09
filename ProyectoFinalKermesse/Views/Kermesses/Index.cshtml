@@ -1,100 +1,174 @@
 ﻿@model IEnumerable<ProyectoFinalKermesse.Models.Kermesse>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kermesse";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fInicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fFinal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaCreacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaModificacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaEliminacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Parroquia1.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario.userName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario1.userName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario2.userName)
-        </th>
-        <th></th>
-    </tr>
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"><a href="#">  @Html.ActionLink("Kermesse", "Index", "Kermesses", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fFinal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
+    </ol>
+</div>
+
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <img src="~/fonts/BannersKermesse/20.png" alt="Banner 6">
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <hr />
+    @using (Html.BeginForm())
+    {
+<div class="container">
+    <p>
+        Buscar por nombre: @Html.TextBox("valorBusq")
+        <input type="submit" value="Buscar" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" />
+    </p>
+</div>}
+
+    <div class="dropdown" style=" left: 1000px">
+        <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+            &nbsp;
+            Exportar a
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteKermesse", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteKermesse", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteKermesse", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
+
+        </ul>
+    </div>
+    <hr />
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.fechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaModificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaEliminacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parroquia1.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.userName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario1.userName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario2.userName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fInicio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fFinal)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.descripcion)
+    </td>
+    @*<td>
             @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaCreacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaModificacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaEliminacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parroquia1.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario.userName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario1.userName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario2.userName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idKermesse }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idKermesse }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idKermesse })
-        </td>
-    </tr>
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.fechaCreacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fechaModificacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fechaEliminacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Parroquia1.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Usuario.userName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Usuario1.userName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Usuario2.userName)
+    </td>
+    <td>
+        <button class="btn">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
+            @Html.ActionLink("Editar", "Edit", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
+        </button>
+
+        <button class="btn">
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+            @Html.ActionLink("Detalles", "Details", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
+        </button>
+
+        <button class="btn">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
+        </button>
+
+        <button class="btn">
+            <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
+            @Html.ActionLink("Ver Reporte", "VerReporteKermesseDetalle", new { id = item.idKermesse }, new { @style = "color: #779FA1" })
+        </button>
+
+     
+
+
+    </td>
+
+</tr>
 }
 
-</table>
+    </table>
+
+    <hr />
+
+    <p>
+        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+            @Html.ActionLink("Agregar nuevo", "Create", "Kermesses", new { @style = "color:white;" })
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+        </button>
+    </p>
+
+</div>

@@ -1,94 +1,133 @@
 ﻿@model IEnumerable<ProyectoFinalKermesse.Models.IngresoComunidad>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Ingreso de Comunidad";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.cantProducto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.totalBonos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaCreacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaModificacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaEliminacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comunidad1.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Kermesse1.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Producto1.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario.userName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario1.userName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario2.userName)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.cantProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalBonos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaCreacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaModificacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaEliminacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comunidad1.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kermesse1.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Producto1.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario.userName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario1.userName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario2.userName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idIngresoComunidad }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idIngresoComunidad }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idIngresoComunidad })
-        </td>
-    </tr>
-}
+<div>
 
-</table>
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"><a href="#">  @Html.ActionLink("Ingreso de Comunidad", "Index", "IngresoComunidads", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+
+    </ol>
+</div>
+
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <img src="~/fonts/BannersKermesse/16.png" alt="Banner 6">
+
+    </div>
+
+</div>
+
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cantProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.totalBonos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaModificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaEliminacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comunidad1.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kermesse1.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto1.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.userName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario1.userName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario2.userName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cantProducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.totalBonos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaCreacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaModificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaEliminacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comunidad1.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kermesse1.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto1.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario1.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario2.userName)
+                </td>
+                <td>
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idIngresoComunidad }, new { @style = "color: #779FA1;" })
+                    </button>
+
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idIngresoComunidad }, new { @style = "color: #779FA1;" })
+                    </button>
+
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idIngresoComunidad }, new { @style = "color: #779FA1;" })
+                    </button>
+                   
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <hr />
+
+    <p>
+        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+            @Html.ActionLink("Agregar nuevo", "Create", "IngresoComunidads", new { @style = "color:white;" })
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+        </button>
+    </p>
+    </div> 

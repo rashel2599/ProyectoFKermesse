@@ -1,65 +1,88 @@
 ﻿@model ProyectoFinalKermesse.Models.IngresoComunidadDet
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar Detalle de Ingreso de Comunidad";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>IngresoComunidadDet</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.denominacion)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.denominacion)
-        </dd>
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Detalle de Ingreso de Comunidad", "Index", "IngresoComunidadDets", new { area = "" }, new { @style = "color: #779FA1" })   </a></li>
+        <li class="active"> Eliminar  </li>
+    </ol>
+</div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
-        </dt>
+<div class="container">
+    <h2>Eliminar</h2>
+    <h3>Detalle de Ingreso de Comunidad</h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.cantidad)
-        </dd>
+    <h3>¿Esta seguro que desea eliminar esto?</h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.subTotalBono)
-        </dt>
+    <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.subTotalBono)
-        </dd>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.denominacion)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ControlBono.nombre)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.denominacion)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ControlBono.nombre)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IngresoComunidad1.idIngresoComunidad)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cantidad)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IngresoComunidad1.idIngresoComunidad)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.subTotalBono)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.subTotalBono)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            <dt>
+                @Html.DisplayNameFor(model => model.ControlBono.nombre)
+            </dt>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <dd>
+                @Html.DisplayFor(model => model.ControlBono.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IngresoComunidad1.idIngresoComunidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IngresoComunidad1.idIngresoComunidad)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <button class="btn-primary" style="background-color: #779FA1">
+                    <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+                    @Html.ActionLink("Regresar", "Index", "IngresoComunidadDets", new { @style = "color:white;" })
+                </button>
+
+                <button type="submit" class="btn-primary" style="background-color: red">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+                    Eliminar
+                </button>
+
+            </div>
+        }
+    </div>
 </div>

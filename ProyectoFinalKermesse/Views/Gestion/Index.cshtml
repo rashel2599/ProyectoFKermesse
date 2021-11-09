@@ -76,6 +76,8 @@
                             <p> En esta sección se encuentran todas las tablas relacionadas con la lista de precios </p>
 
                             <p>@Html.ActionLink("Lista de Precios", "Index", "ListaPrecios", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Detalle de Lista de Precios", "Index", "ListaPrecioDets", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Productos", "Index", "Productoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
                             <p>@Html.ActionLink("Categoría de Productos", "Index", "CategoriaProductoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
 
                         </div>
@@ -93,6 +95,7 @@
                             <h3>Gestión de Kermesse</h3>
                             <p> En esta sección se encuentran todas las tablas relacionadas con la gestión de Kermesse </p>
 
+                            <p> @Html.ActionLink("Kermesse", "Index", "Kermesses", new { area = "" }, new { @style = "color: #779FA1" })</p>
                             <p>@Html.ActionLink("Parroquias", "Index", "Parroquias", new { area = "" }, new { @style = "color: #779FA1" })</p>
 
                         </div>
@@ -110,6 +113,10 @@
                             <h3>Control de Gasto</h3>
                             <p> En esta sección se encuentran todas las tablas relacionadas con el control de gasto </p>
 
+                            <p>@Html.ActionLink("Gastos", "Index", "Gastoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Ingreso de comunidad", "Index", "IngresoComunidads", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Detalle de Ingreso de comunidad", "Index", "IngresoComunidadDets", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                           
 
 
                         </div>
@@ -128,6 +135,8 @@
                             <p> En esta sección se encuentran todas las tablas relacionadas con la gestión de usuarios </p>
                             <p>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #779FA1" })</p>
                             <p>@Html.ActionLink("Opciones", "Index", "Opcions", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Rol Opcion", "Index", "RolOpcions", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Rol Usuarios", "Index", "RolUsuarios", new { area = "" }, new { @style = "color: #779FA1" })</p>
 
                         </div>
                     </div>
