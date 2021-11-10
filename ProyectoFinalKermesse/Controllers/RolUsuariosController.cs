@@ -15,9 +15,18 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: RolUsuarios
-        public ActionResult Index()
+        public ActionResult Index(String valorBusq="" )
         {
-            var rolUsuario = db.RolUsuario.Include(r => r.Rol1).Include(r => r.Usuario1);
+            var rolUsuario = from ru in db.RolUsuario select ru;
+
+            rolUsuario = db.RolUsuario.Include(ru => ru.Rol1).Include(ru => ru.Usuario1);
+
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                rolUsuario = rolUsuario.Where(ru => ru.Usuario1.nombres.Contains(valorBusq));
+            }
+
             return View(rolUsuario.ToList());
         }
 
@@ -49,11 +58,15 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idRolUsuario,usuario,rol")] RolUsuario rolUsuario)
+        public ActionResult Create(RolUsuario rolUsuario)
         {
             if (ModelState.IsValid)
             {
-                db.RolUsuario.Add(rolUsuario);
+                var ru = new RolUsuario();
+                ru.usuario = rolUsuario.usuario;
+                ru.rol = rolUsuario.rol;
+
+                db.RolUsuario.Add(ru);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -118,9 +131,19 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RolUsuario rolUsuario = db.RolUsuario.Find(id);
-            db.RolUsuario.Remove(rolUsuario);
-            db.SaveChanges();
+            try
+            {
+                RolUsuario rolUsuario = db.RolUsuario.Find(id);
+                db.RolUsuario.Remove(rolUsuario);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return RedirectToAction("Index");
+            }
+            
             return RedirectToAction("Index");
         }
 
