@@ -26,6 +26,18 @@
 </div>
 
 <div class="container">
+
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <p>
+                Buscar por Comunidad: @Html.TextBox("valorBusq")
+                <input type="submit" value="Buscar" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" />
+            </p>
+        </div>
+
+    }
     <table class="table">
         <tr>
             <th>
@@ -44,22 +56,22 @@
                 @Html.DisplayNameFor(model => model.fechaEliminacion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Comunidad1.nombre)
+                @Html.DisplayNameFor(model => model.comunidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Kermesse1.nombre)
+                @Html.DisplayNameFor(model => model.kermesse)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Producto1.nombre)
+                @Html.DisplayNameFor(model => model.producto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario.userName)
+                @Html.DisplayNameFor(model => model.usuarioCreacion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario1.userName)
+                @Html.DisplayNameFor(model => model.usuarioModificacion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario2.userName)
+                @Html.DisplayNameFor(model => model.usuarioEliminacion)
             </th>
             <th></th>
         </tr>
@@ -115,7 +127,7 @@
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.idIngresoComunidad }, new { @style = "color: #779FA1;" })
                     </button>
-                   
+
                 </td>
             </tr>
         }
@@ -130,4 +142,4 @@
             <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
         </button>
     </p>
-    </div> 
+</div> 

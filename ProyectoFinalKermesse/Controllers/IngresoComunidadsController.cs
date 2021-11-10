@@ -15,9 +15,16 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: IngresoComunidads
-        public ActionResult Index()
+        public ActionResult Index(String valorBusq = "")
         {
-            var ingresoComunidad = db.IngresoComunidad.Include(i => i.Comunidad1).Include(i => i.Kermesse1).Include(i => i.Producto1).Include(i => i.Usuario).Include(i => i.Usuario1).Include(i => i.Usuario2);
+            var ingresoComunidad = from ic in db.IngresoComunidad select ic;
+            ingresoComunidad = db.IngresoComunidad.Include(i => i.Comunidad1).Include(i => i.Kermesse1).Include(i => i.Producto1).Include(i => i.Usuario).Include(i => i.Usuario1).Include(i => i.Usuario2);
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                ingresoComunidad = ingresoComunidad.Where(c => c.Comunidad1.nombre.Contains(valorBusq));
+            }
+
             return View(ingresoComunidad.ToList());
         }
 
@@ -53,11 +60,21 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idIngresoComunidad,kermesse,comunidad,producto,cantProducto,totalBonos,usuarioCreacion,fechaCreacion,usuarioModificacion,fechaModificacion,usuarioEliminacion,fechaEliminacion")] IngresoComunidad ingresoComunidad)
+        public ActionResult Create(IngresoComunidad ingresoComunidad)
         {
             if (ModelState.IsValid)
             {
-                db.IngresoComunidad.Add(ingresoComunidad);
+                var ic = new IngresoComunidad();
+
+                ic.kermesse = ingresoComunidad.kermesse;
+                ic.comunidad = ingresoComunidad.comunidad;
+                ic.producto = ingresoComunidad.producto;
+                ic.cantProducto = ingresoComunidad.cantProducto;
+                ic.totalBonos = ingresoComunidad.totalBonos;
+                ic.usuarioCreacion = ingresoComunidad.usuarioCreacion;
+                ic.fechaCreacion = DateTime.Today;
+
+                db.IngresoComunidad.Add(ic);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -101,6 +118,8 @@ namespace ProyectoFinalKermesse.Controllers
         {
             if (ModelState.IsValid)
             {
+                ingresoComunidad.fechaModificacion = DateTime.Today;
+
                 db.Entry(ingresoComunidad).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -134,9 +153,19 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            IngresoComunidad ingresoComunidad = db.IngresoComunidad.Find(id);
-            db.IngresoComunidad.Remove(ingresoComunidad);
-            db.SaveChanges();
+            try
+            {
+                IngresoComunidad ingresoComunidad = db.IngresoComunidad.Find(id);
+                db.IngresoComunidad.Remove(ingresoComunidad);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+
+            }
+
             return RedirectToAction("Index");
         }
 

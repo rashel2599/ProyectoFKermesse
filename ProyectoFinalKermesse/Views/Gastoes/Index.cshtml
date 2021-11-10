@@ -24,6 +24,17 @@
 </div>
 
 <div class="container">
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <p>
+                Buscar por nombre: @Html.TextBox("valorBusq")
+                <input type="submit" value="Buscar" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" />
+            </p>
+        </div>
+
+    }
     <table class="table">
         <tr>
             <th>
@@ -51,13 +62,13 @@
                 @Html.DisplayNameFor(model => model.Kermesse1.nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario.userName)
+                @Html.DisplayNameFor(model => model.usuarioCreacion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario1.userName)
+                @Html.DisplayNameFor(model => model.usuarioEliminacion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario2.userName)
+                @Html.DisplayNameFor(model => model.usuarioModificacion)
             </th>
             <th></th>
         </tr>
@@ -99,10 +110,10 @@
                     @Html.DisplayFor(modelItem => item.Usuario2.userName)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idGasto }, new { @style = "color: #779FA1" }) 
-                   
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idGasto }, new { @style = "color: #779FA1" }) 
-                   
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idGasto }, new { @style = "color: #779FA1" })
+
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idGasto }, new { @style = "color: #779FA1" })
+
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.idGasto }, new { @style = "color: #779FA1" })
                 </td>
             </tr>

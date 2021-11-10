@@ -15,9 +15,18 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Gastoes
-        public ActionResult Index()
+        public ActionResult Index(String valorBusq = "")
         {
-            var gasto = db.Gasto.Include(g => g.CategoriaGasto).Include(g => g.Kermesse1).Include(g => g.Usuario).Include(g => g.Usuario1).Include(g => g.Usuario2);
+
+            var gasto = from g in db.Gasto select g;
+            gasto = db.Gasto.Include(g => g.CategoriaGasto).Include(g => g.Kermesse1).Include(g => g.Usuario).Include(g => g.Usuario1).Include(g => g.Usuario2);
+
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                gasto = gasto.Where(lp => lp.concepto.Contains(valorBusq));
+            }
+
             return View(gasto.ToList());
         }
 
@@ -52,11 +61,21 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idGasto,kermesse,catGasto,fechGasto,concepto,monto,usuarioCreacion,fechaCreacion,usuarioModificacion,fechaModificacion,usuarioEliminacion,fechaEliminacion")] Gasto gasto)
+        public ActionResult Create(Gasto gasto)
         {
             if (ModelState.IsValid)
             {
-                db.Gasto.Add(gasto);
+                var g = new Gasto();
+
+                g.kermesse = gasto.kermesse;
+                g.catGasto = gasto.catGasto;
+                g.fechGasto = gasto.fechGasto;
+                g.concepto = gasto.concepto;
+                g.monto = gasto.monto;
+                g.usuarioCreacion = gasto.usuarioCreacion;
+                g.fechaCreacion = DateTime.Today;
+
+                db.Gasto.Add(g);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -98,6 +117,8 @@ namespace ProyectoFinalKermesse.Controllers
         {
             if (ModelState.IsValid)
             {
+                gasto.fechaModificacion = DateTime.Today;
+
                 db.Entry(gasto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

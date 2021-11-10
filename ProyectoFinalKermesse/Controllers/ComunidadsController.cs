@@ -15,9 +15,17 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Comunidads
-        public ActionResult Index()
+        public ActionResult Index(String valorBusq = "")
         {
-            return View(db.Comunidad.ToList());
+            var comunidad = from c in db.Comunidad select c;
+            comunidad = comunidad.Where(c => c.estado.Equals(1) || c.estado.Equals(2));
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                comunidad = comunidad.Where(c => c.nombre.Contains(valorBusq));
+            }
+
+            return View(comunidad.ToList());
         }
 
         // GET: Comunidads/Details/5
@@ -46,11 +54,17 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idComunidad,nombre,responsble,descContribucion,estado")] Comunidad comunidad)
+        public ActionResult Create(Comunidad comunidad)
         {
             if (ModelState.IsValid)
             {
-                db.Comunidad.Add(comunidad);
+                var cm = new Comunidad();
+                cm.nombre = comunidad.nombre;
+                cm.responsble = comunidad.responsble;
+                cm.descContribucion = comunidad.descContribucion;
+                cm.estado = 1;
+
+                db.Comunidad.Add(cm);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
