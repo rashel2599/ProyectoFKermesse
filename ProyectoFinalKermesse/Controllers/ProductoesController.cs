@@ -15,9 +15,20 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Productoes
-        public ActionResult Index()
+        public ActionResult Index(String valorBusq= "")
         {
-            var producto = db.Producto.Include(p => p.CategoriaProducto).Include(p => p.Comunidad1);
+            var producto = from p in db.Producto select p;
+
+            producto = db.Producto.Include(p => p.CategoriaProducto).Include(p => p.Comunidad1);
+            producto = producto.Where(p => p.estado.Equals(1) || p.estado.Equals(2));
+
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                producto = producto.Where(p => p.nombre.Contains(valorBusq));
+            }
+
+
             return View(producto.ToList());
         }
 
@@ -49,11 +60,21 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idProducto,comunidad,catProd,nombre,descripcion,cantidad,precioVSugerido,estado")] Producto producto)
+        public ActionResult Create(Producto producto)
         {
             if (ModelState.IsValid)
             {
-                db.Producto.Add(producto);
+                var p = new Producto();
+
+                p.nombre = producto.nombre;
+                p.comunidad = producto.comunidad;
+                p.descripcion = producto.descripcion;
+                p.catProd = producto.catProd;
+                p.precioVSugerido = producto.precioVSugerido;
+                p.cantidad = producto.cantidad;
+                p.estado = 1;
+
+                db.Producto.Add(p);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -89,6 +110,9 @@ namespace ProyectoFinalKermesse.Controllers
         {
             if (ModelState.IsValid)
             {
+                producto.estado = 2;
+
+
                 db.Entry(producto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -118,9 +142,18 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Producto producto = db.Producto.Find(id);
-            db.Producto.Remove(producto);
-            db.SaveChanges();
+            try
+            {
+                Producto producto = db.Producto.Find(id);
+                db.Producto.Remove(producto);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+           
             return RedirectToAction("Index");
         }
 
