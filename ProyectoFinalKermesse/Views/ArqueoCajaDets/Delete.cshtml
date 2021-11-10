@@ -1,0 +1,65 @@
+﻿@model ProyectoFinalKermesse.Models.ArqueoCajaDet
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ArqueoCajaDet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.subtotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subtotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArqueoCaja1.idArqueoCaja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArqueoCaja1.idArqueoCaja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Denominacion1.valorLetras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Denominacion1.valorLetras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Moneda1.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Moneda1.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,67 +1,82 @@
 ﻿@model ProyectoFinalKermesse.Models.Comunidad
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Comunidad";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<div>
+
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#"> @Html.ActionLink("Comunidad", "Index", "Comunidads", new { area = "" }, new { @style = "color: #779FA1" })   </a></li>
+        <li class="active"> Editar  </li>
+    </ol>
+</div>
+
+<div class="container">
+    <h2>Editar</h2>
+    <h3>Comunidad</h3>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Comunidad</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.idComunidad)
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
-            </div>
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.idComunidad)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.responsble, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.responsble, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.responsble, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.responsble, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.responsble, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.responsble, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.descContribucion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.descContribucion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.descContribucion, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.descContribucion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.descContribucion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descContribucion, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
+    @*<div class="form-group">
             @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+    <button class="btn-primary" style="background-color: #779FA1">
+        <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+        @Html.ActionLink("Regresar", "Index", "Comunidads", new { @style = "color:white;" })
+    </button>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <button type="submit" class="btn-primary" style="background-color: #779FA1">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+        Editar
+    </button>
 </div>
+    }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    </div> 

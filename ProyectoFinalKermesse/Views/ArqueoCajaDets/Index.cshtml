@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoFinalKermesse.Models.ArqueoCajaDet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subtotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArqueoCaja1.idArqueoCaja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Denominacion1.valorLetras)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Moneda1.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subtotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArqueoCaja1.idArqueoCaja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Denominacion1.valorLetras)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Moneda1.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idArqueoCajaDet }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idArqueoCajaDet }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idArqueoCajaDet })
+        </td>
+    </tr>
+}
+
+</table>

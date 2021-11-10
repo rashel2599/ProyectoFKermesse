@@ -149,10 +149,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArqueoCajaDetsController.cs" />
+    <Compile Include="Controllers\ArqueoCajasController.cs" />
     <Compile Include="Controllers\CategoriaGastoesController.cs" />
     <Compile Include="Controllers\CategoriaProductoesController.cs" />
     <Compile Include="Controllers\ComunidadsController.cs" />
     <Compile Include="Controllers\ControlBonoesController.cs" />
+    <Compile Include="Controllers\DenominacionsController.cs" />
     <Compile Include="Controllers\GastoesController.cs" />
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\IngresoComunidadDetsController.cs" />
@@ -169,6 +172,7 @@
     <Compile Include="Controllers\RolsController.cs" />
     <Compile Include="Controllers\RolUsuariosController.cs" />
     <Compile Include="Controllers\TasaCambioDetsController.cs" />
+    <Compile Include="Controllers\TasaCambiosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="DataSet\DsReportes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -458,6 +462,26 @@
     <Content Include="Views\Comunidads\Index.cshtml" />
     <Content Include="Views\Kermesses\VerReporteKermesse.cshtml" />
     <Content Include="Views\Kermesses\VerReporteKermesseDetalle.cshtml" />
+    <Content Include="Views\ArqueoCajas\Create.cshtml" />
+    <Content Include="Views\ArqueoCajas\Delete.cshtml" />
+    <Content Include="Views\ArqueoCajas\Details.cshtml" />
+    <Content Include="Views\ArqueoCajas\Edit.cshtml" />
+    <Content Include="Views\ArqueoCajas\Index.cshtml" />
+    <Content Include="Views\ArqueoCajaDets\Create.cshtml" />
+    <Content Include="Views\ArqueoCajaDets\Delete.cshtml" />
+    <Content Include="Views\ArqueoCajaDets\Details.cshtml" />
+    <Content Include="Views\ArqueoCajaDets\Edit.cshtml" />
+    <Content Include="Views\ArqueoCajaDets\Index.cshtml" />
+    <Content Include="Views\Denominacions\Create.cshtml" />
+    <Content Include="Views\Denominacions\Delete.cshtml" />
+    <Content Include="Views\Denominacions\Details.cshtml" />
+    <Content Include="Views\Denominacions\Edit.cshtml" />
+    <Content Include="Views\Denominacions\Index.cshtml" />
+    <Content Include="Views\TasaCambios\Create.cshtml" />
+    <Content Include="Views\TasaCambios\Delete.cshtml" />
+    <Content Include="Views\TasaCambios\Details.cshtml" />
+    <Content Include="Views\TasaCambios\Edit.cshtml" />
+    <Content Include="Views\TasaCambios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
