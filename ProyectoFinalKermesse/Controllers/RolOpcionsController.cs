@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -29,6 +31,100 @@ namespace ProyectoFinalKermesse.Controllers
 
             return View(rolOpcion.ToList());
         }
+
+        //Get: VerReportes
+
+        public ActionResult VerReporteRolOpcion(string tipo, string valorBusq = "")
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptRolOpcion.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var rolOpcion = from r in db.RolOpcion select r;
+
+            rolOpcion = db.RolOpcion.Include(r => r.Opcion1).Include(r => r.Rol1);
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                rolOpcion = rolOpcion.Where(r => r.Opcion1.opcionDescripcion.Contains(valorBusq));
+            }
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<RolOpcion> listaRolOp = new List<RolOpcion>();
+            listaRolOp = rolOpcion.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsRolOpcion", listaRolOp);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteRolOpcionDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var rolOpcion = from r in db.RolOpcion select r;
+            rolOpcion = rolOpcion.Where(r => r.idRolOpcion.Equals(id));
+
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptRolOpcionDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<RolOpcion> listaRolOp = new List<RolOpcion>();
+            listaRolOp = modelo.RolOpcion.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsRolOpcion", rolOpcion.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
 
         // GET: RolOpcions/Details/5
         public ActionResult Details(int? id)

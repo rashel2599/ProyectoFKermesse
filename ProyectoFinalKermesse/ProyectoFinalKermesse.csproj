@@ -482,6 +482,18 @@
     <Content Include="Views\TasaCambios\Details.cshtml" />
     <Content Include="Views\TasaCambios\Edit.cshtml" />
     <Content Include="Views\TasaCambios\Index.cshtml" />
+    <Content Include="Views\Gastoes\VerReporteGasto.cshtml" />
+    <Content Include="Views\Gastoes\VerReporteGastoDetalle.cshtml" />
+    <Content Include="Views\IngresoComunidads\VerReporteIngresoComunidad.cshtml" />
+    <Content Include="Views\IngresoComunidads\VerReporteIngresoComunidadDetalle.cshtml" />
+    <Content Include="Views\Productoes\VerReporteProducto.cshtml" />
+    <Content Include="Views\Productoes\VerReporteProductoDetalle.cshtml" />
+    <Content Include="Views\RolOpcions\VerReporteRolOpcion.cshtml" />
+    <Content Include="Views\RolOpcions\VerReporteRolOpcionDetalle.cshtml" />
+    <Content Include="Views\RolUsuarios\VerReporteRolUsuario.cshtml" />
+    <Content Include="Views\RolUsuarios\VerReporteRolUsuarioDetalle.cshtml" />
+    <Content Include="Views\Comunidads\VerReporteComunidad.cshtml" />
+    <Content Include="Views\Comunidads\VerReporteComunidadDetalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -505,6 +517,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Reportes\RptCatGastosDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptCatProdDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptComunidadDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptGasto.rdlc" />
     <EmbeddedResource Include="Reportes\RptGastoDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptIngresoComunidad.rdlc" />
@@ -513,6 +526,7 @@
     <EmbeddedResource Include="Reportes\RptIngresoComunidadDetDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptKermesse.rdlc" />
     <EmbeddedResource Include="Reportes\RptKermesseDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptComunidad.rdlc" />
     <EmbeddedResource Include="Reportes\RptListaPrecioDet.rdlc" />
     <EmbeddedResource Include="Reportes\RptListaPrecioDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptListaPrecioDetDetalle.rdlc" />

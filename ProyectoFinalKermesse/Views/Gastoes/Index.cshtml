@@ -35,6 +35,22 @@
         </div>
 
     }
+
+    <div class="dropdown" style=" left: 1000px">
+        <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+            &nbsp;
+            Exportar a
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteGasto", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteGasto", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteGasto", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
+
+        </ul>
+    </div>
+    <hr />
     <table class="table">
         <tr>
             <th>
@@ -115,6 +131,8 @@
                     @Html.ActionLink("Detalles", "Details", new { id = item.idGasto }, new { @style = "color: #779FA1" })
 
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.idGasto }, new { @style = "color: #779FA1" })
+
+                    @Html.ActionLink("Ver Reporte", "VerReporteGastoDetalle", new { id = item.idGasto }, new { @style = "color: #779FA1" })
                 </td>
             </tr>
         }

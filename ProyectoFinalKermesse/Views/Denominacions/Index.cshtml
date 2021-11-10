@@ -1,52 +1,78 @@
 ﻿@model IEnumerable<ProyectoFinalKermesse.Models.Denominacion>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Denominacion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.valorLetras)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Moneda1.nombre)
-        </th>
-        <th></th>
-    </tr>
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"><a href="#">  @Html.ActionLink("Denominación", "Index", "Denominacions", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valorLetras)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Moneda1.nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idDenominacion }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idDenominacion }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idDenominacion })
-        </td>
-    </tr>
-}
+    </ol>
+</div>
 
-</table>
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <img src="~/fonts/BannersKermesse/27.png" alt="Banner 6">
+
+    </div>
+
+</div>
+
+
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valorLetras)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Moneda1.nombre)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valorLetras)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Moneda1.nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idDenominacion }, new { @style = "color: #779FA1" }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idDenominacion }, new { @style = "color: #779FA1" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idDenominacion }, new { @style = "color: #779FA1" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <hr />
+
+    <p>
+        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+            @Html.ActionLink("Agregar nuevo", "Create", "Denominacions", new { @style = "color:white;" })
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+        </button>
+    </p>
+</div> 

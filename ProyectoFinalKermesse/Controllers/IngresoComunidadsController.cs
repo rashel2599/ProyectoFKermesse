@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -27,6 +29,102 @@ namespace ProyectoFinalKermesse.Controllers
 
             return View(ingresoComunidad.ToList());
         }
+
+
+
+        //Get: VerReportes
+
+        public ActionResult VerReporteIngresoComunidad(string tipo, string valorBusq = "")
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptIngresoComunidad.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var ingresoComunidad = from ic in db.IngresoComunidad select ic;
+            ingresoComunidad = db.IngresoComunidad.Include(i => i.Comunidad1).Include(i => i.Kermesse1).Include(i => i.Producto1).Include(i => i.Usuario).Include(i => i.Usuario1).Include(i => i.Usuario2);
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                ingresoComunidad = ingresoComunidad.Where(c => c.Comunidad1.nombre.Contains(valorBusq));
+            }
+
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<IngresoComunidad> listaIngCom = new List<IngresoComunidad>();
+            listaIngCom = ingresoComunidad.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsIngresoComunidad", listaIngCom);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteIngresoComunidadDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var ingresoComunidad = from ic in db.IngresoComunidad select ic;
+            ingresoComunidad = ingresoComunidad.Where(ic => ic.idIngresoComunidad.Equals(id));
+
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptIngresoComunidadDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<IngresoComunidad> listaIngCom = new List<IngresoComunidad>();
+            listaIngCom = modelo.IngresoComunidad.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsIngresoComunidad", ingresoComunidad.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
 
         // GET: IngresoComunidads/Details/5
         public ActionResult Details(int? id)

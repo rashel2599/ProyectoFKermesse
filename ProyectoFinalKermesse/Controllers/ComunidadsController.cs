@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -26,6 +28,99 @@ namespace ProyectoFinalKermesse.Controllers
             }
 
             return View(comunidad.ToList());
+        }
+
+
+        //Get: VerReportes
+
+        public ActionResult VerReporteComunidad(string tipo, string valorBusq = "")
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptComunidad.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var comunidad = from c in db.Comunidad select c;
+            comunidad = comunidad.Where(c => c.estado.Equals(1) || c.estado.Equals(2));
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                comunidad = comunidad.Where(c => c.nombre.Contains(valorBusq));
+            }
+
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Comunidad> listaCom = new List<Comunidad>();
+            listaCom = comunidad.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsComunidad", listaCom);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteComunidadDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var comunidad = from c in db.Comunidad select c;
+            comunidad = comunidad.Where(m => m.idComunidad.Equals(id));
+
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptComunidadDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Comunidad> listaCom = new List<Comunidad>();
+            listaCom = modelo.Comunidad.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsComunidad", comunidad.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
         }
 
         // GET: Comunidads/Details/5

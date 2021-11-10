@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -29,6 +31,101 @@ namespace ProyectoFinalKermesse.Controllers
 
             return View(gasto.ToList());
         }
+
+        //Get: VerReportes
+
+        public ActionResult VerReporteGasto(string tipo, string valorBusq = "")
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptGasto.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var gasto = from g in db.Gasto select g;
+            gasto = db.Gasto.Include(g => g.CategoriaGasto).Include(g => g.Kermesse1).Include(g => g.Usuario).Include(g => g.Usuario1).Include(g => g.Usuario2);
+
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                gasto = gasto.Where(lp => lp.concepto.Contains(valorBusq));
+            }
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Gasto> listaGas = new List<Gasto>();
+            listaGas = gasto.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsGasto", listaGas);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteGastoDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var gasto = from g in db.Gasto select g;
+            gasto = gasto.Where(g => g.idGasto.Equals(id));
+
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptGastoDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Gasto> listaGas = new List<Gasto>();
+            listaGas = modelo.Gasto.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsGasto", gasto.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
+
 
         // GET: Gastoes/Details/5
         public ActionResult Details(int? id)
