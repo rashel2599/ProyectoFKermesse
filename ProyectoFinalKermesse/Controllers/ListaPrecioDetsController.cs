@@ -15,9 +15,17 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: ListaPrecioDets
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq = "")
         {
-            var listaPrecioDet = db.ListaPrecioDet.Include(l => l.ListaPrecio1).Include(l => l.Producto1);
+            var listaPrecioDet = from l in db.ListaPrecioDet select l;
+            listaPrecioDet = db.ListaPrecioDet.Include(l => l.ListaPrecio1).Include(l => l.Producto1);
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                listaPrecioDet = listaPrecioDet.Where(l => l.ListaPrecio1.nombre.Contains(valorBusq));
+            }
+
+
             return View(listaPrecioDet.ToList());
         }
 
@@ -49,11 +57,17 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idListaPrecioDet,listaPrecio,producto,precioVenta")] ListaPrecioDet listaPrecioDet)
+        public ActionResult Create(ListaPrecioDet listaPrecioDet)
         {
             if (ModelState.IsValid)
             {
-                db.ListaPrecioDet.Add(listaPrecioDet);
+                var l = new ListaPrecioDet();
+                l.listaPrecio = listaPrecioDet.listaPrecio;
+                l.producto = listaPrecioDet.producto;
+                l.precioVenta = listaPrecioDet.precioVenta;
+
+
+                db.ListaPrecioDet.Add(l);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -118,9 +132,19 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ListaPrecioDet listaPrecioDet = db.ListaPrecioDet.Find(id);
-            db.ListaPrecioDet.Remove(listaPrecioDet);
-            db.SaveChanges();
+            try
+            {
+                ListaPrecioDet listaPrecioDet = db.ListaPrecioDet.Find(id);
+                db.ListaPrecioDet.Remove(listaPrecioDet);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+
+            }
+            
             return RedirectToAction("Index");
         }
 
