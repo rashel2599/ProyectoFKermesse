@@ -15,9 +15,17 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: IngresoComunidadDets
-        public ActionResult Index()
+        public ActionResult Index(String valorBusq = "")
         {
-            var ingresoComunidadDet = db.IngresoComunidadDet.Include(i => i.ControlBono).Include(i => i.IngresoComunidad1);
+            var ingresoComunidadDet = from ic in db.IngresoComunidadDet select ic;
+            ingresoComunidadDet = db.IngresoComunidadDet.Include(i => i.ControlBono).Include(i => i.IngresoComunidad1);
+            
+            if (!String.IsNullOrEmpty(valorBusq))
+            {
+                ingresoComunidadDet = ingresoComunidadDet.Where(c => c.ControlBono.nombre.Contains(valorBusq));
+            }
+
+
             return View(ingresoComunidadDet.ToList());
         }
 
@@ -49,11 +57,20 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idIngresoComunidadDet,ingresoComunidad,bono,denominacion,cantidad,subTotalBono")] IngresoComunidadDet ingresoComunidadDet)
+        public ActionResult Create(IngresoComunidadDet ingresoComunidadDet)
         {
             if (ModelState.IsValid)
             {
-                db.IngresoComunidadDet.Add(ingresoComunidadDet);
+                var ic = new IngresoComunidadDet();
+
+                ic.ingresoComunidad = ingresoComunidadDet.ingresoComunidad;
+                ic.bono = ingresoComunidadDet.bono;
+                ic.denominacion = ingresoComunidadDet.denominacion;
+                ic.cantidad = ingresoComunidadDet.cantidad;
+                ic.subTotalBono = ingresoComunidadDet.subTotalBono;
+
+
+                db.IngresoComunidadDet.Add(ic);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -85,10 +102,19 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idIngresoComunidadDet,ingresoComunidad,bono,denominacion,cantidad,subTotalBono")] IngresoComunidadDet ingresoComunidadDet)
+        public ActionResult Edit(IngresoComunidadDet ingresoComunidadDet)
         {
             if (ModelState.IsValid)
             {
+                var ic = new IngresoComunidadDet();
+
+                ic.idIngresoComunidadDet = ingresoComunidadDet.idIngresoComunidadDet;
+                ic.ingresoComunidad = ingresoComunidadDet.ingresoComunidad;
+                ic.bono = ingresoComunidadDet.bono;
+                ic.denominacion = ingresoComunidadDet.denominacion;
+                ic.cantidad = ingresoComunidadDet.cantidad;
+                ic.subTotalBono = ingresoComunidadDet.subTotalBono;
+
                 db.Entry(ingresoComunidadDet).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
