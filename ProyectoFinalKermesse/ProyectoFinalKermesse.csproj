@@ -494,6 +494,8 @@
     <Content Include="Views\RolUsuarios\VerReporteRolUsuarioDetalle.cshtml" />
     <Content Include="Views\Comunidads\VerReporteComunidad.cshtml" />
     <Content Include="Views\Comunidads\VerReporteComunidadDetalle.cshtml" />
+    <Content Include="Views\IngresoComunidadDets\VerReporteIngresoComunidadDet.cshtml" />
+    <Content Include="Views\IngresoComunidadDets\VerReporteIngresoComunidadDetDetalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
