@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'C:\IAW\ProyectoFinalKermesse\ProyectoFinalKermesse\Models\Modelado.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\Admin\Downloads\ProyectoFinalKermesse-a49105e2218eb8005ce6c141ccfebd890e9050c9\ProyectoFinalKermesse\Models\Modelado.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

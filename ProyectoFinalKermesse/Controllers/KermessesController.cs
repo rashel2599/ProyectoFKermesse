@@ -54,20 +54,20 @@ namespace ProyectoFinalKermesse.Controllers
 
             rpt.ReportPath = ruta;
 
-            var kermesse = from k in db.Kermesse select k;
-            kermesse = db.Kermesse.Include(k => k.Parroquia1).Include(k => k.Usuario).Include(k => k.Usuario1).Include(k => k.Usuario2);
-            kermesse = kermesse.Where(k => k.estado.Equals(1) || k.estado.Equals(2));
+            var vwkermesse = from k in db.VwKermesse select k;
+         
+           
 
             if (!string.IsNullOrEmpty(valorBusq))
             {
-                kermesse = kermesse.Where(k => k.nombre.Contains(valorBusq));
+                vwkermesse = vwkermesse.Where(k => k.Kermesse.Contains(valorBusq));
             }
 
 
-            BDKermesseEntities modelo = new BDKermesseEntities();
+            //BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<Kermesse> listaKer = new List<Kermesse>();
-            listaKer = kermesse.ToList();
+            List<VwKermesse> listaKer = new List<VwKermesse>();
+            listaKer = vwkermesse.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsKermesse", listaKer);
             rpt.DataSources.Add(rds);
@@ -89,8 +89,8 @@ namespace ProyectoFinalKermesse.Controllers
             string[] s;
             Warning[] w;
 
-            var kermesse = from k in db.Kermesse select k;
-            kermesse = kermesse.Where(k => k.idKermesse.Equals(id));
+            var vwkermesse = from k in db.VwKermesse select k;
+            vwkermesse = vwkermesse.Where(k => k.idKermesse.Equals(id));
 
 
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptKermesseDetalle.rdlc");
@@ -110,10 +110,10 @@ namespace ProyectoFinalKermesse.Controllers
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<Kermesse> listaKer = new List<Kermesse>();
-            listaKer = modelo.Kermesse.ToList();
+            List<VwKermesse> listaKer = new List<VwKermesse>();
+            listaKer = modelo.VwKermesse.ToList();
 
-            ReportDataSource rds = new ReportDataSource("DsKermesse", kermesse.ToList());
+            ReportDataSource rds = new ReportDataSource("DsKermesse", vwkermesse.ToList());
             rpt.DataSources.Add(rds);
 
             byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);

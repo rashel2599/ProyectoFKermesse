@@ -268,6 +268,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\VwGasto.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VwIngresoComunidad.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VwKermesse.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VwRolOpcion.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VwRolUsuario.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>

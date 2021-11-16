@@ -15,22 +15,20 @@ namespace ProyectoFinalKermesse.Models
 using System;
     using System.Collections.Generic;
     
-public partial class TasaCambioDet
+public partial class VwKermesse
 {
 
-    public int idTasaCambioDet { get; set; }
+    public int idKermesse { get; set; }
 
-    public int tasaCambio { get; set; }
+    public string Parroquia { get; set; }
 
-    public System.DateTime fecha { get; set; }
+    public string Kermesse { get; set; }
 
-    public decimal tipoCambio { get; set; }
+    public System.DateTime FechaInicio { get; set; }
 
-    public int estado { get; set; }
+    public System.DateTime FechaFinal { get; set; }
 
-
-
-    public virtual TasaCambio TasaCambio1 { get; set; }
+    public string Descripcion { get; set; }
 
 }
 

@@ -56,20 +56,20 @@ namespace ProyectoFinalKermesse.Controllers
 
             rpt.ReportPath = ruta;
 
-            var gasto = from g in db.Gasto select g;
-            gasto = db.Gasto.Include(g => g.CategoriaGasto).Include(g => g.Kermesse1).Include(g => g.Usuario).Include(g => g.Usuario1).Include(g => g.Usuario2);
+            var vwgasto = from g in db.VwGasto select g;
+           
 
 
             if (!string.IsNullOrEmpty(valorBusq))
             {
-                gasto = gasto.Where(lp => lp.concepto.Contains(valorBusq));
+                vwgasto = vwgasto.Where(lp => lp.Concepto.Contains(valorBusq));
             }
 
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<Gasto> listaGas = new List<Gasto>();
-            listaGas = gasto.ToList();
+            List<VwGasto> listaGas = new List<VwGasto>();
+            listaGas = vwgasto.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsGasto", listaGas);
             rpt.DataSources.Add(rds);
@@ -91,8 +91,8 @@ namespace ProyectoFinalKermesse.Controllers
             string[] s;
             Warning[] w;
 
-            var gasto = from g in db.Gasto select g;
-            gasto = gasto.Where(g => g.idGasto.Equals(id));
+            var vwgasto = from g in db.VwGasto select g;
+            vwgasto = vwgasto.Where(g => g.id.Equals(id));
 
 
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptGastoDetalle.rdlc");
@@ -112,10 +112,10 @@ namespace ProyectoFinalKermesse.Controllers
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<Gasto> listaGas = new List<Gasto>();
-            listaGas = modelo.Gasto.ToList();
+            List<VwGasto> listaGas = new List<VwGasto>();
+            listaGas = modelo.VwGasto.ToList();
 
-            ReportDataSource rds = new ReportDataSource("DsGasto", gasto.ToList());
+            ReportDataSource rds = new ReportDataSource("DsGasto", vwgasto.ToList());
             rpt.DataSources.Add(rds);
 
             byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);

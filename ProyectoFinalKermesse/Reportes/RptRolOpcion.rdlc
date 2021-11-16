@@ -6,52 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.52167cm</Width>
+              <Width>9.72313cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.52167cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>6.52167cm</Width>
+              <Width>9.51146cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
               <Height>0.85135cm</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>ID</Value>
-                              <Style>
-                                <FontFamily>Roboto</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox3">
@@ -125,14 +89,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="idRolOpcion">
+                    <Textbox Name="RolDescripcion">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!idRolOpcion.Value</Value>
+                              <Value>=Fields!RolDescripcion.Value</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
                               </Style>
@@ -141,7 +105,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>idRolOpcion</rd:DefaultName>
+                      <rd:DefaultName>RolDescripcion</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -157,14 +121,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="rol">
+                    <Textbox Name="Descripcion">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!rol.Value</Value>
+                              <Value>=Fields!Descripcion.Value</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
                               </Style>
@@ -173,39 +137,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>rol</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="opcion">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!opcion.Value</Value>
-                              <Style>
-                                <FontFamily>Roboto</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>opcion</rd:DefaultName>
+                      <rd:DefaultName>Descripcion</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -227,7 +159,6 @@
           <TablixMembers>
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -241,10 +172,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsRolOpcion</DataSetName>
-        <Top>0.62208cm</Top>
+        <Top>1.6275cm</Top>
         <Left>1.34683cm</Left>
-        <Height>1.70271cm</Height>
-        <Width>19.565cm</Width>
+        <Height>1.7027cm</Height>
+        <Width>19.23459cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -496,23 +427,23 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="idRolOpcion">
-          <DataField>idRolOpcion</DataField>
+        <Field Name="id">
+          <DataField>id</DataField>
           <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
-        <Field Name="rol">
-          <DataField>rol</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
+        <Field Name="RolDescripcion">
+          <DataField>RolDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="opcion">
-          <DataField>opcion</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsReportes</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Admin\Downloads\ProyectoFinalKermesse-a49105e2218eb8005ce6c141ccfebd890e9050c9\ProyectoFinalKermesse\DataSet\DsReportes.xsd</rd:SchemaPath>
-        <rd:TableName>RolOpcion</rd:TableName>
+        <rd:TableName>VwRolOpcion</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />

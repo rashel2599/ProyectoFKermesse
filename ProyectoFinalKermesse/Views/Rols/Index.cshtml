@@ -31,8 +31,8 @@
                 @Html.DisplayNameFor(model => model.rolDescripcion)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.estado)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>*@
             <th></th>
         </tr>
 
@@ -43,16 +43,26 @@
                     @Html.DisplayFor(modelItem => item.rolDescripcion)
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.estado)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>*@
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.idRol }, new { @style = "color: #779FA1" }) |
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
                     @Html.ActionLink("Detalles", "Details", new { id = item.idRol }, new { @style = "color: #779FA1" }) |
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.idRol }, new { @style = "color: #779FA1" })
                 </td>
             </tr>
         }
 
     </table>
+    <hr />
 
-    </div> 
+    <p>
+        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+            @Html.ActionLink("Agregar nuevo", "Create", "Rols", new { @style = "color:white;" })
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+        </button>
+    </p>
+</div> 

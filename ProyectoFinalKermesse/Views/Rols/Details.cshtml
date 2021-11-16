@@ -1,35 +1,58 @@
 ﻿@model ProyectoFinalKermesse.Models.Rol
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalle de Rol ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Rol</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.rolDescripcion)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.rolDescripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
-
-    </dl>
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">@Html.ActionLink("Rol", "Index", "Rols", new { area = "" }, new { @style = "color: #779FA1" }) </a></li>
+        <li class="active"> Detalles  </li>
+    </ol>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idRol }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+<div class="container">
+    <h2>Detalles</h2>
+    <h3> Rol </h3>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.rolDescripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.rolDescripcion)
+            </dd>
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.estado)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.estado)
+                </dd>*@
+
+        </dl>
+    </div>
+    <p>
+
+
+        <button class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Regresar", "Index", "Rols", new { @style = "color:white;" })
+        </button>
+
+        <button type="submit" class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idRol }, new { @style = "color:white;" })
+        </button>
+    </p>
+</div> 

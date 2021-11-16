@@ -56,20 +56,17 @@ namespace ProyectoFinalKermesse.Controllers
 
             rpt.ReportPath = ruta;
 
-            var rolOpcion = from r in db.RolOpcion select r;
+            var vwrolopcion = from r in db.VwRolOpcion select r;
 
-            rolOpcion = db.RolOpcion.Include(r => r.Opcion1).Include(r => r.Rol1);
 
             if (!string.IsNullOrEmpty(valorBusq))
             {
-                rolOpcion = rolOpcion.Where(r => r.Opcion1.opcionDescripcion.Contains(valorBusq));
+                vwrolopcion = vwrolopcion.Where(r => r.Descripcion.Contains(valorBusq));
             }
 
 
-            BDKermesseEntities modelo = new BDKermesseEntities();
-
-            List<RolOpcion> listaRolOp = new List<RolOpcion>();
-            listaRolOp = rolOpcion.ToList();
+            List<VwRolOpcion> listaRolOp = new List<VwRolOpcion>();
+            listaRolOp = vwrolopcion.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsRolOpcion", listaRolOp);
             rpt.DataSources.Add(rds);
@@ -91,8 +88,8 @@ namespace ProyectoFinalKermesse.Controllers
             string[] s;
             Warning[] w;
 
-            var rolOpcion = from r in db.RolOpcion select r;
-            rolOpcion = rolOpcion.Where(r => r.idRolOpcion.Equals(id));
+            var vwrolopcion = from r in db.VwRolOpcion select r;
+            vwrolopcion = vwrolopcion.Where(r => r.id.Equals(id));
 
 
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptRolOpcionDetalle.rdlc");
@@ -112,10 +109,10 @@ namespace ProyectoFinalKermesse.Controllers
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<RolOpcion> listaRolOp = new List<RolOpcion>();
-            listaRolOp = modelo.RolOpcion.ToList();
+            List<VwRolOpcion> listaRolOp = new List<VwRolOpcion>();
+            listaRolOp = modelo.VwRolOpcion.ToList();
 
-            ReportDataSource rds = new ReportDataSource("DsRolOpcion", rolOpcion.ToList());
+            ReportDataSource rds = new ReportDataSource("DsRolOpcion", vwrolopcion.ToList());
             rpt.DataSources.Add(rds);
 
             byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);

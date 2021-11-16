@@ -32,9 +32,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.valor)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.estado)
-            </th>
+            </th>*@
             <th></th>
         </tr>
 
@@ -51,8 +51,11 @@
                     @Html.DisplayFor(modelItem => item.estado)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idBono }, new { @style = "color: #779FA1" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idBono }, new { @style = "color: #779FA1" })
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
                     @Html.ActionLink("Detalles", "Details", new { id = item.idBono }, new { @style = "color: #779FA1" }) |
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.idBono }, new { @style = "color: #779FA1" })
                 </td>
             </tr>

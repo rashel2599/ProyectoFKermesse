@@ -65,6 +65,11 @@
         <AssociationConnector Association="BDKermesseModel.FK__RolUsuario__rol__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="BDKermesseModel.FK__RolUsuari__usuar__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="BDKermesseModel.FK__TasaCambi__tasaC__571DF1D5" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwKermesse" Width="1.5" PointX="7.375" PointY="5.75" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwRolOpcion" Width="1.5" PointX="8" PointY="1.25" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwRolUsuario" Width="1.5" PointX="8.625" PointY="8.375" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwGasto" Width="1.5" PointX="9.375" PointY="4" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwIngresoComunidad" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

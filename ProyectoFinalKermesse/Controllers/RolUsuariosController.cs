@@ -56,21 +56,20 @@ namespace ProyectoFinalKermesse.Controllers
 
             rpt.ReportPath = ruta;
 
-            var rolUsuario = from ru in db.RolUsuario select ru;
+            var vwrolUsuario = from ru in db.VwRolUsuario select ru;
 
-            rolUsuario = db.RolUsuario.Include(ru => ru.Rol1).Include(ru => ru.Usuario1);
-
+         
 
             if (!string.IsNullOrEmpty(valorBusq))
             {
-                rolUsuario = rolUsuario.Where(ru => ru.Usuario1.nombres.Contains(valorBusq));
+                vwrolUsuario = vwrolUsuario.Where(ru => ru.Rol.Contains(valorBusq));
             }
 
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<RolUsuario> listaRolUs = new List<RolUsuario>();
-            listaRolUs = rolUsuario.ToList();
+            List<VwRolUsuario> listaRolUs = new List<VwRolUsuario>();
+            listaRolUs = vwrolUsuario.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsRolUsuario", listaRolUs);
             rpt.DataSources.Add(rds);
@@ -92,8 +91,8 @@ namespace ProyectoFinalKermesse.Controllers
             string[] s;
             Warning[] w;
 
-            var rolUsuario = from ru in db.RolUsuario select ru;
-            rolUsuario = rolUsuario.Where(ru => ru.idRolUsuario.Equals(id));
+            var vwrolUsuario = from ru in db.VwRolUsuario select ru;
+            vwrolUsuario = vwrolUsuario.Where(ru => ru.Rol.Equals(id));
 
 
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptRolUsuarioDetalle.rdlc");
@@ -113,10 +112,10 @@ namespace ProyectoFinalKermesse.Controllers
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<RolUsuario> listaRolUs = new List<RolUsuario>();
-            listaRolUs = modelo.RolUsuario.ToList();
+            List<VwRolUsuario> listaRolUs = new List<VwRolUsuario>();
+            listaRolUs = modelo.VwRolUsuario.ToList();
 
-            ReportDataSource rds = new ReportDataSource("DsRolUsuario", rolUsuario.ToList());
+            ReportDataSource rds = new ReportDataSource("DsRolUsuario", vwrolUsuario.ToList());
             rpt.DataSources.Add(rds);
 
             byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);

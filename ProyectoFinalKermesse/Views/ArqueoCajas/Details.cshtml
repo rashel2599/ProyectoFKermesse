@@ -1,91 +1,112 @@
 ﻿@model ProyectoFinalKermesse.Models.ArqueoCaja
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles Arqueo de Caja";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>ArqueoCaja</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaArqueo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.fechaArqueo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.granTotal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.granTotal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaCreacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fechaCreacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaModificacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fechaModificacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaEliminacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fechaEliminacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Kermesse1.nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Kermesse1.nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario.userName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.userName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario1.userName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario1.userName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario2.userName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario2.userName)
-        </dd>
-
-    </dl>
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">@Html.ActionLink("Arqueo de Caja", "Index", "ArqueoCajas", new { area = "" }, new { @style = "color: #779FA1" }) </a></li>
+        <li class="active"> Detalles  </li>
+    </ol>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idArqueoCaja }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="container">
+    <h2>Detalles</h2>
+    <h3> Arqueo de Caja </h3>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaArqueo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaArqueo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.granTotal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.granTotal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaCreacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaCreacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaModificacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaModificacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaEliminacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaEliminacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Kermesse1.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Kermesse1.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario.userName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Usuario.userName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario1.userName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Usuario1.userName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario2.userName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Usuario2.userName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+
+        <button class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Regresar", "Index", "ArqueoCajas", new { @style = "color:white;" })
+        </button>
+
+        <button type="submit" class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idArqueoCaja }, new { @style = "color:white;" })
+        </button>
+    </p>
+</div> 

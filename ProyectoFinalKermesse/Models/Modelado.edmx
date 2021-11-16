@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDKermesseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BDKermesseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ArqueoCaja">
           <Key>
             <PropertyRef Name="idArqueoCaja" />
@@ -258,6 +258,76 @@
           <Property Name="apellidos" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwGasto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwGasto">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+            
+            
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Kermesse" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Monto" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwIngresoComunidad' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwIngresoComunidad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Kermesse" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Comunidad" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Producto" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Cant" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwKermesse' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwKermesse">
+          <Key>
+            <PropertyRef Name="idKermesse" />
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="idKermesse" Type="int" Nullable="false" />
+          <Property Name="Parroquia" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Kermesse" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="FechaFinal" Type="datetime" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolOpcion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwRolOpcion">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="RolDescripcion" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolUsuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwRolUsuario">
+          <Key>
+            
+            
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Usuario" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Rol" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__ArqueoCaj__arque__6FE99F9F">
           <End Role="ArqueoCaja" Type="Self.ArqueoCaja" Multiplicity="1" />
@@ -727,6 +797,48 @@
           <EntitySet Name="TasaCambio" EntityType="Self.TasaCambio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TasaCambioDet" EntityType="Self.TasaCambioDet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VwGasto" EntityType="Self.VwGasto" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwGasto].[id] AS [id], 
+    [VwGasto].[Kermesse] AS [Kermesse], 
+    [VwGasto].[Categoria] AS [Categoria], 
+    [VwGasto].[Concepto] AS [Concepto], 
+    [VwGasto].[Monto] AS [Monto]
+    FROM [dbo].[VwGasto] AS [VwGasto]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwIngresoComunidad" EntityType="Self.VwIngresoComunidad" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwIngresoComunidad].[id] AS [id], 
+    [VwIngresoComunidad].[Kermesse] AS [Kermesse], 
+    [VwIngresoComunidad].[Comunidad] AS [Comunidad], 
+    [VwIngresoComunidad].[Producto] AS [Producto], 
+    [VwIngresoComunidad].[Cant] AS [Cant]
+    FROM [dbo].[VwIngresoComunidad] AS [VwIngresoComunidad]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwKermesse" EntityType="Self.VwKermesse" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwKermesse].[idKermesse] AS [idKermesse], 
+    [VwKermesse].[Parroquia] AS [Parroquia], 
+    [VwKermesse].[Kermesse] AS [Kermesse], 
+    [VwKermesse].[FechaInicio] AS [FechaInicio], 
+    [VwKermesse].[FechaFinal] AS [FechaFinal], 
+    [VwKermesse].[Descripcion] AS [Descripcion]
+    FROM [dbo].[VwKermesse] AS [VwKermesse]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwRolOpcion" EntityType="Self.VwRolOpcion" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwRolOpcion].[id] AS [id], 
+    [VwRolOpcion].[RolDescripcion] AS [RolDescripcion], 
+    [VwRolOpcion].[Descripcion] AS [Descripcion]
+    FROM [dbo].[VwRolOpcion] AS [VwRolOpcion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwRolUsuario" EntityType="Self.VwRolUsuario" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwRolUsuario].[Usuario] AS [Usuario], 
+    [VwRolUsuario].[Rol] AS [Rol], 
+    [VwRolUsuario].[id] AS [id]
+    FROM [dbo].[VwRolUsuario] AS [VwRolUsuario]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__ArqueoCaj__arque__6FE99F9F" Association="Self.FK__ArqueoCaj__arque__6FE99F9F">
             <End Role="ArqueoCaja" EntitySet="ArqueoCaja" />
             <End Role="ArqueoCajaDet" EntitySet="ArqueoCajaDet" />
@@ -876,8 +988,7 @@
             <End Role="TasaCambioDet" EntitySet="TasaCambioDet" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDKermesseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1825,7 +1936,59 @@
             <End Role="TasaCambio" EntitySet="TasaCambio" />
             <End Role="TasaCambioDet" EntitySet="TasaCambioDet" />
           </AssociationSet>
+          <EntitySet Name="VwKermesse" EntityType="BDKermesseModel.VwKermesse" />
+          <EntitySet Name="VwRolOpcion" EntityType="BDKermesseModel.VwRolOpcion" />
+          <EntitySet Name="VwRolUsuario" EntityType="BDKermesseModel.VwRolUsuario" />
+          <EntitySet Name="VwGasto" EntityType="BDKermesseModel.VwGasto" />
+          <EntitySet Name="VwIngresoComunidad" EntityType="BDKermesseModel.VwIngresoComunidad" />
         </EntityContainer>
+        <EntityType Name="VwKermesse">
+          <Key>
+            <PropertyRef Name="idKermesse" />
+          </Key>
+          <Property Name="idKermesse" Type="Int32" Nullable="false" />
+          <Property Name="Parroquia" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Kermesse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaFinal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VwRolOpcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="RolDescripcion" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VwRolUsuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Rol" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VwGasto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Kermesse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Categoria" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Concepto" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VwIngresoComunidad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Kermesse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Comunidad" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Producto" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Cant" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2106,6 +2269,58 @@
                 <ScalarProperty Name="apellidos" ColumnName="apellidos" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwKermesse">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwKermesse">
+              <MappingFragment StoreEntitySet="VwKermesse">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="Kermesse" ColumnName="Kermesse" />
+                <ScalarProperty Name="Parroquia" ColumnName="Parroquia" />
+                <ScalarProperty Name="idKermesse" ColumnName="idKermesse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwRolOpcion">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwRolOpcion">
+              <MappingFragment StoreEntitySet="VwRolOpcion">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RolDescripcion" ColumnName="RolDescripcion" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwRolUsuario">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwRolUsuario">
+              <MappingFragment StoreEntitySet="VwRolUsuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwGasto">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwGasto">
+              <MappingFragment StoreEntitySet="VwGasto">
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Kermesse" ColumnName="Kermesse" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwIngresoComunidad">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwIngresoComunidad">
+              <MappingFragment StoreEntitySet="VwIngresoComunidad">
+                <ScalarProperty Name="Cant" ColumnName="Cant" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Comunidad" ColumnName="Comunidad" />
+                <ScalarProperty Name="Kermesse" ColumnName="Kermesse" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

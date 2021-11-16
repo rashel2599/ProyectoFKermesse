@@ -56,20 +56,19 @@ namespace ProyectoFinalKermesse.Controllers
 
             rpt.ReportPath = ruta;
 
-            var ingresoComunidad = from ic in db.IngresoComunidad select ic;
-            ingresoComunidad = db.IngresoComunidad.Include(i => i.Comunidad1).Include(i => i.Kermesse1).Include(i => i.Producto1).Include(i => i.Usuario).Include(i => i.Usuario1).Include(i => i.Usuario2);
-
+            var vwingresoComunidad = from ic in db.VwIngresoComunidad select ic;
+           
             if (!string.IsNullOrEmpty(valorBusq))
             {
-                ingresoComunidad = ingresoComunidad.Where(c => c.Comunidad1.nombre.Contains(valorBusq));
+                vwingresoComunidad = vwingresoComunidad.Where(c => c.Comunidad.Contains(valorBusq));
             }
 
 
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<IngresoComunidad> listaIngCom = new List<IngresoComunidad>();
-            listaIngCom = ingresoComunidad.ToList();
+            List<VwIngresoComunidad> listaIngCom = new List<VwIngresoComunidad>();
+            listaIngCom = vwingresoComunidad.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsIngresoComunidad", listaIngCom);
             rpt.DataSources.Add(rds);
@@ -91,8 +90,8 @@ namespace ProyectoFinalKermesse.Controllers
             string[] s;
             Warning[] w;
 
-            var ingresoComunidad = from ic in db.IngresoComunidad select ic;
-            ingresoComunidad = ingresoComunidad.Where(ic => ic.idIngresoComunidad.Equals(id));
+            var vwingresoComunidad = from ic in db.VwIngresoComunidad select ic;
+            vwingresoComunidad = vwingresoComunidad.Where(ic => ic.id.Equals(id));
 
 
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptIngresoComunidadDetalle.rdlc");
@@ -112,10 +111,10 @@ namespace ProyectoFinalKermesse.Controllers
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<IngresoComunidad> listaIngCom = new List<IngresoComunidad>();
-            listaIngCom = modelo.IngresoComunidad.ToList();
+            List<VwIngresoComunidad> listaIngCom = new List<VwIngresoComunidad>();
+            listaIngCom = modelo.VwIngresoComunidad.ToList();
 
-            ReportDataSource rds = new ReportDataSource("DsIngresoComunidad", ingresoComunidad.ToList());
+            ReportDataSource rds = new ReportDataSource("DsIngresoComunidad", vwingresoComunidad.ToList());
             rpt.DataSources.Add(rds);
 
             byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
