@@ -24,6 +24,17 @@
 </div>
 
 <div class="container">
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <p>
+                Buscar por nombre: @Html.TextBox("valorBusq")
+                <input type="submit" value="Buscar" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" />
+            </p>
+        </div>
+
+    }
     <table class="table">
         <tr>
             <th>
@@ -33,8 +44,8 @@
                 @Html.DisplayNameFor(model => model.valor)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.estado)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>*@
             <th></th>
         </tr>
 

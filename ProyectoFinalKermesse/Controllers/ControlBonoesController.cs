@@ -15,9 +15,18 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: ControlBonoes
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq="")
         {
-            return View(db.ControlBono.ToList());
+            var controlBono = from cb in db.ControlBono select cb;
+            
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                controlBono = controlBono.Where(c => c.nombre.Contains(valorBusq));
+            }
+
+
+
+            return View(controlBono.ToList());
         }
 
         // GET: ControlBonoes/Details/5

@@ -15,9 +15,17 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Denominacions
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq = "")
         {
-            var denominacion = db.Denominacion.Include(d => d.Moneda1);
+            var denominacion = from d in db.Denominacion select d;
+
+            denominacion = db.Denominacion.Include(d => d.Moneda1);
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                denominacion = denominacion.Where(d => d.Moneda1.nombre.Contains(valorBusq));
+            }
+
             return View(denominacion.ToList());
         }
 

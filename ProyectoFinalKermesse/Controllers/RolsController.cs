@@ -15,9 +15,16 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Rols
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq = "")
         {
-            return View(db.Rol.ToList());
+            var rol = from r in db.Rol select r;
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                rol = rol.Where(r => r.rolDescripcion.Contains(valorBusq));
+            }
+
+            return View(rol.ToList());
         }
 
         // GET: Rols/Details/5

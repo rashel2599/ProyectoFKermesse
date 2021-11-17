@@ -15,9 +15,17 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: ArqueoCajas
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq = "")
         {
-            var arqueoCaja = db.ArqueoCaja.Include(a => a.Kermesse1).Include(a => a.Usuario).Include(a => a.Usuario1).Include(a => a.Usuario2);
+            var arqueoCaja = from ac in db.ArqueoCaja select ac; 
+                
+            arqueoCaja = db.ArqueoCaja.Include(a => a.Kermesse1).Include(a => a.Usuario).Include(a => a.Usuario1).Include(a => a.Usuario2);
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                arqueoCaja = arqueoCaja.Where(a => a.Kermesse1.nombre.Contains(valorBusq));
+            }
+
             return View(arqueoCaja.ToList());
         }
 

@@ -15,9 +15,17 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: TasaCambios
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq = "")
         {
-            var tasaCambio = db.TasaCambio.Include(t => t.Moneda).Include(t => t.Moneda1);
+            var tasaCambio = from tc in db.TasaCambio select tc; 
+                
+            tasaCambio = db.TasaCambio.Include(t => t.Moneda).Include(t => t.Moneda1);
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                tasaCambio = tasaCambio.Where(t => t.mes.Contains(valorBusq));
+            }
+
             return View(tasaCambio.ToList());
         }
 
