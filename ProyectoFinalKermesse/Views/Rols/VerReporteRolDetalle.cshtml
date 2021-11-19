@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProyectoFinalKermesse.Models.Rol>
+
+@{
+    ViewBag.Title = "VerReporteRolDetalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>VerReporteRolDetalle</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rolDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.rolDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idRol }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idRol }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idRol })
+        </td>
+    </tr>
+}
+
+</table>

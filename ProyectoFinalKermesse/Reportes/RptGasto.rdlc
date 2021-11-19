@@ -264,6 +264,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value>C$ </Value>
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!Monto.Value</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
@@ -538,7 +544,6 @@
             </Image>
           </ReportItems>
           <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
-          <Top>0cm</Top>
           <Height>3.15397cm</Height>
           <Width>21.46746cm</Width>
           <Style>

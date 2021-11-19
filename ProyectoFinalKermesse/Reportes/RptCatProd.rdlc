@@ -103,7 +103,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -136,7 +138,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -169,7 +173,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox6</rd:DefaultName>
@@ -201,10 +207,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!idCatProd.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>idCatProd</rd:DefaultName>
@@ -231,10 +241,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!nombre.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nombre</rd:DefaultName>
@@ -261,10 +275,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!descripcion.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>descripcion</rd:DefaultName>
@@ -303,8 +321,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsCatProd</DataSetName>
-        <Top>0.10583cm</Top>
-        <Left>0.28835cm</Left>
+        <Top>0.17639cm</Top>
+        <Left>0.43829cm</Left>
         <Height>1.86618cm</Height>
         <Width>19.88313cm</Width>
         <ZIndex>1</ZIndex>

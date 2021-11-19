@@ -88,6 +88,18 @@ public partial class BDKermesseEntities : DbContext
 
     public virtual DbSet<VwIngresoComunidad> VwIngresoComunidad { get; set; }
 
+    public virtual DbSet<VwArqueoCaja> VwArqueoCaja { get; set; }
+
+    public virtual DbSet<VwArqueoCajaDet> VwArqueoCajaDet { get; set; }
+
+    public virtual DbSet<VwDenominacion> VwDenominacion { get; set; }
+
+    public virtual DbSet<VwListaPrecioDet> VwListaPrecioDet { get; set; }
+
+    public virtual DbSet<VwTasaCambio> VwTasaCambio { get; set; }
+
+    public virtual DbSet<VwTasaCambioDet> VwTasaCambioDet { get; set; }
+
 }
 
 }

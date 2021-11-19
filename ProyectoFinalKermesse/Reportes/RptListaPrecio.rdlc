@@ -34,7 +34,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -132,7 +134,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!idListaPrecio.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -162,7 +166,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!nombre.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -273,7 +279,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsListaPrecio</DataSetName>
-        <Top>0.07056cm</Top>
+        <Top>0.3616cm</Top>
+        <Left>0.60212cm</Left>
         <Height>1.86618cm</Height>
         <Width>19.73702cm</Width>
         <Style>
@@ -283,7 +290,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.77639in</Height>
+    <Height>1.38056in</Height>
     <Style>
       <Border>
         <Style>None</Style>

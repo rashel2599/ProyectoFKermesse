@@ -85,7 +85,7 @@
               <Width>6.17743cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>9.93451cm</Width>
+              <Width>11.19189cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -107,7 +107,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -140,7 +142,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -173,7 +177,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox6</rd:DefaultName>
@@ -205,10 +211,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!idCatGasto.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>idCatGasto</rd:DefaultName>
@@ -235,10 +245,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!nombreCategoria.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nombreCategoria</rd:DefaultName>
@@ -265,10 +279,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!descripcion.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>descripcion</rd:DefaultName>
@@ -307,10 +325,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsCategoriaGastos</DataSetName>
-        <Top>0.17639cm</Top>
-        <Left>0.33332cm</Left>
+        <Top>0.4742cm</Top>
+        <Left>0.52798cm</Left>
         <Height>1.86618cm</Height>
-        <Width>18.85126cm</Width>
+        <Width>20.10864cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

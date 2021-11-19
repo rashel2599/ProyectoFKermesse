@@ -96,12 +96,15 @@
                             <TextRun>
                               <Value>ID</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>idCatProd</rd:DefaultName>
@@ -129,12 +132,13 @@
                             <TextRun>
                               <Value>=Fields!idCatProd.Value</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -168,12 +172,15 @@
                             <TextRun>
                               <Value>Nombre </Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -201,12 +208,13 @@
                             <TextRun>
                               <Value>=Fields!nombre.Value</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -240,12 +248,15 @@
                             <TextRun>
                               <Value>Descripción</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -273,12 +284,13 @@
                             <TextRun>
                               <Value>=Fields!descripcion.Value</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -320,8 +332,8 @@
         </TablixRowHierarchy>
         <DataSetName>DsCatProd</DataSetName>
         <Top>0.84695cm</Top>
-        <Left>0.28835cm</Left>
-        <Height>4.14392cm</Height>
+        <Left>2.78162cm</Left>
+        <Height>4.14393cm</Height>
         <Width>14.59473cm</Width>
         <ZIndex>1</ZIndex>
         <Style>

@@ -268,6 +268,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\VwArqueoCaja.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VwArqueoCajaDet.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VwDenominacion.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VwGasto.cs">
       <DependentUpon>Modelado.tt</DependentUpon>
     </Compile>
@@ -277,10 +286,19 @@
     <Compile Include="Models\VwKermesse.cs">
       <DependentUpon>Modelado.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VwListaPrecioDet.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VwRolOpcion.cs">
       <DependentUpon>Modelado.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VwRolUsuario.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VwTasaCambio.cs">
+      <DependentUpon>Modelado.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VwTasaCambioDet.cs">
       <DependentUpon>Modelado.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -511,6 +529,18 @@
     <Content Include="Views\Comunidads\VerReporteComunidadDetalle.cshtml" />
     <Content Include="Views\IngresoComunidadDets\VerReporteIngresoComunidadDet.cshtml" />
     <Content Include="Views\IngresoComunidadDets\VerReporteIngresoComunidadDetDetalle.cshtml" />
+    <Content Include="Views\Denominacions\VerReporteDenominacion.cshtml" />
+    <Content Include="Views\Denominacions\VerReporteDenominacionDetalle.cshtml" />
+    <Content Include="Views\ListaPrecioDets\VerReporteListaPrecioDet.cshtml" />
+    <Content Include="Views\ListaPrecioDets\VerReporteListaPrecioDetDetalle.cshtml" />
+    <Content Include="Views\ArqueoCajas\VerReporteArqueoCaja.cshtml" />
+    <Content Include="Views\ArqueoCajas\VerReporteArqueoCajaDetalle.cshtml" />
+    <Content Include="Views\ArqueoCajaDets\VerReporteArqueoCajaDet.cshtml" />
+    <Content Include="Views\ArqueoCajaDets\VerReporteArqueoCajaDetDetalle.cshtml" />
+    <Content Include="Views\ControlBonoes\VerReporteControlBono.cshtml" />
+    <Content Include="Views\ControlBonoes\VerReporteControlBonoDetalle.cshtml" />
+    <Content Include="Views\Rols\VerReporteRol.cshtml" />
+    <Content Include="Views\Rols\VerReporteRolDetalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -532,6 +562,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reportes\RptDenominacionDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptDenominacion.rdlc" />
+    <EmbeddedResource Include="Reportes\RptControlBonoDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptControlBono.rdlc" />
+    <EmbeddedResource Include="Reportes\RptArqueoCajaDetDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptArqueoCajaDet.rdlc" />
+    <EmbeddedResource Include="Reportes\RptArqueoCajaDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptCatGastosDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptCatProdDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptComunidadDetalle.rdlc" />
@@ -544,6 +581,13 @@
     <EmbeddedResource Include="Reportes\RptKermesse.rdlc" />
     <EmbeddedResource Include="Reportes\RptKermesseDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptComunidad.rdlc" />
+    <EmbeddedResource Include="Reportes\RptArqueoCaja.rdlc" />
+    <EmbeddedResource Include="Reportes\RptRolDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptRol.rdlc" />
+    <EmbeddedResource Include="Reportes\RptTasaCambioDetDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptTasaCambioDet.rdlc" />
+    <EmbeddedResource Include="Reportes\RptTasaCambioDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptTasaCambio.rdlc" />
     <EmbeddedResource Include="Reportes\RptListaPrecioDet.rdlc" />
     <EmbeddedResource Include="Reportes\RptListaPrecioDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptListaPrecioDetDetalle.rdlc" />

@@ -66,10 +66,16 @@
         <AssociationConnector Association="BDKermesseModel.FK__RolUsuari__usuar__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="BDKermesseModel.FK__TasaCambi__tasaC__571DF1D5" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BDKermesseModel.VwKermesse" Width="1.5" PointX="7.375" PointY="5.75" />
-        <EntityTypeShape EntityType="BDKermesseModel.VwRolOpcion" Width="1.5" PointX="8" PointY="1.25" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwRolOpcion" Width="1.5" PointX="6.875" PointY="0.625" />
         <EntityTypeShape EntityType="BDKermesseModel.VwRolUsuario" Width="1.5" PointX="8.625" PointY="8.375" />
         <EntityTypeShape EntityType="BDKermesseModel.VwGasto" Width="1.5" PointX="9.375" PointY="4" />
         <EntityTypeShape EntityType="BDKermesseModel.VwIngresoComunidad" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwArqueoCaja" Width="1.5" PointX="8.375" PointY="10.75" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwArqueoCajaDet" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwDenominacion" Width="1.5" PointX="12.375" PointY="2.625" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwListaPrecioDet" Width="1.5" PointX="12" PointY="5.25" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwTasaCambio" Width="1.5" PointX="12.25" PointY="0.75" />
+        <EntityTypeShape EntityType="BDKermesseModel.VwTasaCambioDet" Width="1.5" PointX="12.25" PointY="8.5" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

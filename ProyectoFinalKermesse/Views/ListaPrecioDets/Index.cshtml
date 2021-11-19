@@ -25,6 +25,8 @@
 
 </div>
 
+
+
 <div class="container">
     <hr />
     @using (Html.BeginForm())
@@ -46,9 +48,9 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteMoneda", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
-            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteMoneda", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
-            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteMoneda", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteListaPrecioDet", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteListaPrecioDet", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteListaPrecioDet", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
 
         </ul>
     </div>
@@ -89,7 +91,7 @@
                     <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.idListaPrecioDet }, new { @style = "color: #779FA1;" }) |
                     <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
-                    @Html.ActionLink("Ver Reporte", "Delete", new { id = item.idListaPrecioDet }, new { @style = "color: #779FA1;" })
+                    @Html.ActionLink("Ver Reporte", "VerReporteListaPrecioDetDetalle", new { id = item.idListaPrecioDet }, new { @style = "color: #779FA1;" })
                 </td>
             </tr>
         }

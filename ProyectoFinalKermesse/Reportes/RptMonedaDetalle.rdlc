@@ -28,12 +28,14 @@
                               <Value>ID</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
-                                <FontSize>20pt</FontSize>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox10</rd:DefaultName>
@@ -62,12 +64,12 @@
                               <Value>=Fields!idMoneda.Value</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
-                                <FontSize>20pt</FontSize>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -102,12 +104,14 @@
                               <Value>Nombre de la Moneda</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
-                                <FontSize>20pt</FontSize>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -136,12 +140,12 @@
                               <Value>=Fields!nombre.Value</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
-                                <FontSize>20pt</FontSize>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -176,12 +180,14 @@
                               <Value>Símbolo</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
-                                <FontSize>20pt</FontSize>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -210,12 +216,12 @@
                               <Value>=Fields!simbolo.Value</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
-                                <FontSize>20pt</FontSize>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -257,8 +263,8 @@
         </TablixRowHierarchy>
         <DataSetName>DsMoneda</DataSetName>
         <Top>1.24354cm</Top>
-        <Left>0.66146cm</Left>
-        <Height>3.49333cm</Height>
+        <Left>3.28084cm</Left>
+        <Height>3.49332cm</Height>
         <Width>15.15831cm</Width>
         <Style>
           <Border>

@@ -38,7 +38,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -71,7 +73,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -104,7 +108,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -130,14 +136,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Descr Contribucion</Value>
+                              <Value>Contribucion</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox8</rd:DefaultName>
@@ -174,7 +182,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>idComunidad</rd:DefaultName>
@@ -206,7 +216,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nombre</rd:DefaultName>
@@ -238,7 +250,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>responsble</rd:DefaultName>
@@ -270,7 +284,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>descContribucion</rd:DefaultName>
@@ -313,7 +329,7 @@
         <Top>0.46333cm</Top>
         <Left>0.92287cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.65729cm</Width>
+        <Width>19.65728cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -522,7 +538,6 @@
             </Image>
           </ReportItems>
           <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
-          <Top>0cm</Top>
           <Height>3.15397cm</Height>
           <Width>21.46746cm</Width>
           <Style>

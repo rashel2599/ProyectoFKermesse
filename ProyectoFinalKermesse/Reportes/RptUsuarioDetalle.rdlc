@@ -96,7 +96,8 @@
                             <TextRun>
                               <Value>ID</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -131,12 +132,13 @@
                             <TextRun>
                               <Value>=Fields!idUsuario.Value</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -170,7 +172,8 @@
                             <TextRun>
                               <Value>Username</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -205,12 +208,13 @@
                             <TextRun>
                               <Value>=Fields!userName.Value</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -244,7 +248,8 @@
                             <TextRun>
                               <Value>Contraseña</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -279,12 +284,13 @@
                             <TextRun>
                               <Value>=Fields!pwd.Value</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -318,7 +324,8 @@
                             <TextRun>
                               <Value>Nombres</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -353,12 +360,13 @@
                             <TextRun>
                               <Value>=Fields!nombres.Value</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -392,7 +400,8 @@
                             <TextRun>
                               <Value>Apellidos</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -427,12 +436,13 @@
                             <TextRun>
                               <Value>=Fields!apellidos.Value</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -466,7 +476,8 @@
                             <TextRun>
                               <Value>Email</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -501,12 +512,13 @@
                             <TextRun>
                               <Value>=Fields!email.Value</Value>
                               <Style>
-                                <FontSize>18pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -551,9 +563,9 @@
         </TablixRowHierarchy>
         <DataSetName>DsUsuario</DataSetName>
         <Top>0.62618cm</Top>
-        <Left>0.88576cm</Left>
-        <Height>5.54705cm</Height>
-        <Width>17.06592cm</Width>
+        <Left>2.15576cm</Left>
+        <Height>5.54703cm</Height>
+        <Width>17.06591cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -770,6 +782,7 @@
             </Textbox>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
+          <Top>0cm</Top>
           <Left>0.01581cm</Left>
           <Height>2.32021cm</Height>
           <Width>21.01767cm</Width>

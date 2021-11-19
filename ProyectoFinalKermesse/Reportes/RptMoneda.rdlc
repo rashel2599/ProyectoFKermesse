@@ -241,8 +241,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsMoneda</DataSetName>
+        <Top>0.37042cm</Top>
+        <Left>0.21819cm</Left>
         <Height>1.2cm</Height>
-        <Width>20.43558cm</Width>
+        <Width>20.43559cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -250,7 +252,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.69119in</Height>
+    <Height>0.87869in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -455,6 +457,7 @@
             </Textbox>
           </ReportItems>
           <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+          <Top>0cm</Top>
           <Height>2.95521cm</Height>
           <Width>21.46746cm</Width>
           <Style>

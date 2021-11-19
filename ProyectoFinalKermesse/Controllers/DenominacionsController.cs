@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -28,6 +30,99 @@ namespace ProyectoFinalKermesse.Controllers
 
             return View(denominacion.ToList());
         }
+        //Get: VerReportes
+
+        public ActionResult VerReporteDenominacion(string tipo, string valorBusq = "")
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptDenominacion.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var vwdenominacion = from d in db.VwDenominacion select d;
+
+
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                vwdenominacion = vwdenominacion.Where(d => d.Moneda.Contains(valorBusq));
+            }
+
+
+            //BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<VwDenominacion> listaDen = new List<VwDenominacion>();
+            listaDen = vwdenominacion.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsDenominacion", listaDen);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteDenominacionDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var vwdenominacion = from d in db.VwDenominacion select d;
+            vwdenominacion = vwdenominacion.Where(d => d.id.Equals(id));
+
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptDenominacionDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<VwDenominacion> listaDen = new List<VwDenominacion>();
+            listaDen = modelo.VwDenominacion.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsDenominacion", vwdenominacion.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
 
         // GET: Denominacions/Details/5
         public ActionResult Details(int? id)

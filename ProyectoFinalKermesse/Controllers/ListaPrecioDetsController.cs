@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -28,7 +30,97 @@ namespace ProyectoFinalKermesse.Controllers
 
             return View(listaPrecioDet.ToList());
         }
+        //Get: VerReportes
 
+        public ActionResult VerReporteListaPrecioDet(string tipo, string valorBusq = "")
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptListaPrecioDet.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var vwlistaPrecioDet = from l in db.VwListaPrecioDet select l;
+
+
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                vwlistaPrecioDet = vwlistaPrecioDet.Where(l => l.ListaPrecio.Contains(valorBusq));
+            }
+
+
+            //BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<VwListaPrecioDet> listaPrecioDet = new List<VwListaPrecioDet>();
+            listaPrecioDet = vwlistaPrecioDet.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsListaPrecioDet", listaPrecioDet);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteListaPrecioDetDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var vwlistaPrecioDet = from l in db.VwListaPrecioDet select l;
+            vwlistaPrecioDet = vwlistaPrecioDet.Where(l => l.id.Equals(id));
+
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptListaPrecioDetDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<VwListaPrecioDet> listaPrecioDet = new List<VwListaPrecioDet>();
+            listaPrecioDet = modelo.VwListaPrecioDet.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsListaPrecioDet", vwlistaPrecioDet.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
         // GET: ListaPrecioDets/Details/5
         public ActionResult Details(int? id)
         {

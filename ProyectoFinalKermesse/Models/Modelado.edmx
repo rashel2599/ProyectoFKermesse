@@ -260,6 +260,50 @@
           <Property Name="estado" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwArqueoCaja' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwArqueoCaja">
+          <Key>
+            <PropertyRef Name="id" />
+            
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Kermesse" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwArqueoCajaDet' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwArqueoCajaDet">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Moneda" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="ArqueoCaja" Type="int" Nullable="false" />
+          <Property Name="Denominacion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Subtotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwDenominacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwDenominacion">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+            
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Moneda" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ValorLetras" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwGasto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VwGasto">
           <Key>
@@ -280,6 +324,10 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwIngresoComunidad' no tiene 
         <EntityType Name="VwIngresoComunidad">
           <Key>
             <PropertyRef Name="id" />
+            
+            
+            
+            
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="Kermesse" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -306,6 +354,17 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwKermesse' no tiene definida
           <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwListaPrecioDet' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwListaPrecioDet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ListaPrecio" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Producto" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Precio" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolOpcion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VwRolOpcion">
           <Key>
@@ -328,6 +387,30 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolUsuario' no tiene defini
           <Property Name="Usuario" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Rol" Type="nvarchar" MaxLength="70" Nullable="false" />
           <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwTasaCambio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwTasaCambio">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Moneda" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="MonedaCambio" Type="nvarchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwTasaCambioDet' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwTasaCambioDet">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Mes" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="TipoCambio" Type="decimal" Precision="18" Scale="4" Nullable="false" />
         </EntityType>
         <Association Name="FK__ArqueoCaj__arque__6FE99F9F">
           <End Role="ArqueoCaja" Type="Self.ArqueoCaja" Multiplicity="1" />
@@ -797,6 +880,32 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolUsuario' no tiene defini
           <EntitySet Name="TasaCambio" EntityType="Self.TasaCambio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TasaCambioDet" EntityType="Self.TasaCambioDet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VwArqueoCaja" EntityType="Self.VwArqueoCaja" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwArqueoCaja].[id] AS [id], 
+    [VwArqueoCaja].[Kermesse] AS [Kermesse], 
+    [VwArqueoCaja].[Fecha] AS [Fecha], 
+    [VwArqueoCaja].[Total] AS [Total]
+    FROM [dbo].[VwArqueoCaja] AS [VwArqueoCaja]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwArqueoCajaDet" EntityType="Self.VwArqueoCajaDet" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwArqueoCajaDet].[id] AS [id], 
+    [VwArqueoCajaDet].[Moneda] AS [Moneda], 
+    [VwArqueoCajaDet].[ArqueoCaja] AS [ArqueoCaja], 
+    [VwArqueoCajaDet].[Denominacion] AS [Denominacion], 
+    [VwArqueoCajaDet].[Cantidad] AS [Cantidad], 
+    [VwArqueoCajaDet].[Subtotal] AS [Subtotal]
+    FROM [dbo].[VwArqueoCajaDet] AS [VwArqueoCajaDet]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwDenominacion" EntityType="Self.VwDenominacion" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwDenominacion].[id] AS [id], 
+    [VwDenominacion].[Moneda] AS [Moneda], 
+    [VwDenominacion].[Valor] AS [Valor], 
+    [VwDenominacion].[ValorLetras] AS [ValorLetras]
+    FROM [dbo].[VwDenominacion] AS [VwDenominacion]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VwGasto" EntityType="Self.VwGasto" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VwGasto].[id] AS [id], 
@@ -825,6 +934,14 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolUsuario' no tiene defini
     [VwKermesse].[Descripcion] AS [Descripcion]
     FROM [dbo].[VwKermesse] AS [VwKermesse]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VwListaPrecioDet" EntityType="Self.VwListaPrecioDet" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwListaPrecioDet].[id] AS [id], 
+    [VwListaPrecioDet].[ListaPrecio] AS [ListaPrecio], 
+    [VwListaPrecioDet].[Producto] AS [Producto], 
+    [VwListaPrecioDet].[Precio] AS [Precio]
+    FROM [dbo].[VwListaPrecioDet] AS [VwListaPrecioDet]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VwRolOpcion" EntityType="Self.VwRolOpcion" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VwRolOpcion].[id] AS [id], 
@@ -838,6 +955,20 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolUsuario' no tiene defini
     [VwRolUsuario].[Rol] AS [Rol], 
     [VwRolUsuario].[id] AS [id]
     FROM [dbo].[VwRolUsuario] AS [VwRolUsuario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwTasaCambio" EntityType="Self.VwTasaCambio" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwTasaCambio].[id] AS [id], 
+    [VwTasaCambio].[Moneda] AS [Moneda], 
+    [VwTasaCambio].[MonedaCambio] AS [MonedaCambio]
+    FROM [dbo].[VwTasaCambio] AS [VwTasaCambio]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwTasaCambioDet" EntityType="Self.VwTasaCambioDet" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwTasaCambioDet].[id] AS [id], 
+    [VwTasaCambioDet].[Mes] AS [Mes], 
+    [VwTasaCambioDet].[TipoCambio] AS [TipoCambio]
+    FROM [dbo].[VwTasaCambioDet] AS [VwTasaCambioDet]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__ArqueoCaj__arque__6FE99F9F" Association="Self.FK__ArqueoCaj__arque__6FE99F9F">
             <End Role="ArqueoCaja" EntitySet="ArqueoCaja" />
@@ -1941,6 +2072,12 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolUsuario' no tiene defini
           <EntitySet Name="VwRolUsuario" EntityType="BDKermesseModel.VwRolUsuario" />
           <EntitySet Name="VwGasto" EntityType="BDKermesseModel.VwGasto" />
           <EntitySet Name="VwIngresoComunidad" EntityType="BDKermesseModel.VwIngresoComunidad" />
+          <EntitySet Name="VwArqueoCaja" EntityType="BDKermesseModel.VwArqueoCaja" />
+          <EntitySet Name="VwArqueoCajaDet" EntityType="BDKermesseModel.VwArqueoCajaDet" />
+          <EntitySet Name="VwDenominacion" EntityType="BDKermesseModel.VwDenominacion" />
+          <EntitySet Name="VwListaPrecioDet" EntityType="BDKermesseModel.VwListaPrecioDet" />
+          <EntitySet Name="VwTasaCambio" EntityType="BDKermesseModel.VwTasaCambio" />
+          <EntitySet Name="VwTasaCambioDet" EntityType="BDKermesseModel.VwTasaCambioDet" />
         </EntityContainer>
         <EntityType Name="VwKermesse">
           <Key>
@@ -1988,6 +2125,60 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolUsuario' no tiene defini
           <Property Name="Comunidad" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
           <Property Name="Producto" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
           <Property Name="Cant" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VwArqueoCaja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Kermesse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="VwArqueoCajaDet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Moneda" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="ArqueoCaja" Type="Int32" Nullable="false" />
+          <Property Name="Denominacion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Subtotal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="VwDenominacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Moneda" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="ValorLetras" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VwListaPrecioDet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="ListaPrecio" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Producto" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VwTasaCambio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Moneda" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="MonedaCambio" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VwTasaCambioDet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Mes" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="TipoCambio" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2320,6 +2511,66 @@ advertencia 6002: La tabla o vista 'BDKermesse.dbo.VwRolUsuario' no tiene defini
                 <ScalarProperty Name="Producto" ColumnName="Producto" />
                 <ScalarProperty Name="Comunidad" ColumnName="Comunidad" />
                 <ScalarProperty Name="Kermesse" ColumnName="Kermesse" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwArqueoCaja">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwArqueoCaja">
+              <MappingFragment StoreEntitySet="VwArqueoCaja">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Kermesse" ColumnName="Kermesse" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwArqueoCajaDet">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwArqueoCajaDet">
+              <MappingFragment StoreEntitySet="VwArqueoCajaDet">
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+                <ScalarProperty Name="ArqueoCaja" ColumnName="ArqueoCaja" />
+                <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwDenominacion">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwDenominacion">
+              <MappingFragment StoreEntitySet="VwDenominacion">
+                <ScalarProperty Name="ValorLetras" ColumnName="ValorLetras" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwListaPrecioDet">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwListaPrecioDet">
+              <MappingFragment StoreEntitySet="VwListaPrecioDet">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="ListaPrecio" ColumnName="ListaPrecio" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwTasaCambio">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwTasaCambio">
+              <MappingFragment StoreEntitySet="VwTasaCambio">
+                <ScalarProperty Name="MonedaCambio" ColumnName="MonedaCambio" />
+                <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwTasaCambioDet">
+            <EntityTypeMapping TypeName="BDKermesseModel.VwTasaCambioDet">
+              <MappingFragment StoreEntitySet="VwTasaCambioDet">
+                <ScalarProperty Name="TipoCambio" ColumnName="TipoCambio" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

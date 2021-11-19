@@ -75,7 +75,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.73932cm</Width>
+              <Width>2.34245cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.73485cm</Width>
@@ -90,7 +90,7 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.34667cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -506,10 +506,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsParroquia</DataSetName>
-        <Top>0.14111cm</Top>
+        <Top>0.53799cm</Top>
         <Left>0.31899cm</Left>
         <Height>1.86618cm</Height>
-        <Width>19.56409cm</Width>
+        <Width>20.01388cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.37734cm</Width>
+              <Width>6.16567cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>9.41858cm</Width>
@@ -27,12 +27,15 @@
                             <TextRun>
                               <Value>ID</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>idListaPrecio</rd:DefaultName>
@@ -60,12 +63,13 @@
                             <TextRun>
                               <Value>=Fields!idListaPrecio.Value</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -99,12 +103,15 @@
                             <TextRun>
                               <Value>Nombre</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -132,12 +139,13 @@
                             <TextRun>
                               <Value>=Fields!nombre.Value</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -171,12 +179,15 @@
                             <TextRun>
                               <Value>Descripción</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -204,12 +215,13 @@
                             <TextRun>
                               <Value>=Fields!descripcion.Value</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -251,9 +263,9 @@
         </TablixRowHierarchy>
         <DataSetName>DsListaPrecio</DataSetName>
         <Top>0.6791cm</Top>
-        <Left>0.88576cm</Left>
+        <Left>2.19426cm</Left>
         <Height>3.7206cm</Height>
-        <Width>15.79593cm</Width>
+        <Width>15.58425cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

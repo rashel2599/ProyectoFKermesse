@@ -36,6 +36,22 @@
 
     }
 
+    <div class="dropdown" style=" left: 1000px">
+        <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+            &nbsp;
+            Exportar a
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteArqueoCaja", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteArqueoCaja", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteArqueoCaja", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
+
+        </ul>
+    </div>
+    <hr />
+
     <table class="table">
         <tr>
             <th>
@@ -112,6 +128,11 @@
                     <button class="btn">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.idArqueoCaja }, new { @style = "color: #779FA1" })
+                    </button>
+
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
+                        @Html.ActionLink("Ver Reporte", "VerReporteArqueoCajaDetalle", new { id = item.idArqueoCaja }, new { @style = "color: #779FA1" })
                     </button>
 
                 </td>

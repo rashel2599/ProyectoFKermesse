@@ -75,22 +75,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.73932cm</Width>
+              <Width>2.8187cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.34639cm</Width>
+              <Width>3.42577cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.41888cm</Width>
+              <Width>4.49826cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.34667cm</Width>
+              <Width>3.42605cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.57938cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.39958cm</Width>
+              <Width>3.47896cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -506,10 +506,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsUsuario</DataSetName>
-        <Top>0.07056cm</Top>
-        <Left>0.01581cm</Left>
+        <Top>0.36837cm</Top>
+        <Left>0.39341cm</Left>
         <Height>1.90147cm</Height>
-        <Width>19.75084cm</Width>
+        <Width>20.22709cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -518,7 +518,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.77639in</Height>
+    <Height>1.31806in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -726,7 +726,6 @@
             </Textbox>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
-          <Top>0cm</Top>
           <Left>0.01581cm</Left>
           <Height>2.32021cm</Height>
           <Width>21.01767cm</Width>

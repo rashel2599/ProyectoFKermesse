@@ -27,7 +27,8 @@
                             <TextRun>
                               <Value>ID</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -62,12 +63,13 @@
                             <TextRun>
                               <Value>=Fields!idOpcion.Value</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -101,7 +103,8 @@
                             <TextRun>
                               <Value>Descripción </Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -136,12 +139,13 @@
                             <TextRun>
                               <Value>=Fields!opcionDescripcion.Value</Value>
                               <Style>
-                                <FontSize>20pt</FontSize>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -182,9 +186,9 @@
         </TablixRowHierarchy>
         <DataSetName>DsOpcion</DataSetName>
         <Top>0.78493cm</Top>
-        <Left>0.54498cm</Left>
-        <Height>3.64976cm</Height>
-        <Width>19.19204cm</Width>
+        <Left>0.88576cm</Left>
+        <Height>3.64975cm</Height>
+        <Width>19.19205cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

@@ -208,8 +208,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsOpcion</DataSetName>
-        <Top>0.07056cm</Top>
-        <Left>0.01581cm</Left>
+        <Top>0.33514cm</Top>
+        <Left>0.38623cm</Left>
         <Height>1.86618cm</Height>
         <Width>19.60591cm</Width>
         <Style>
@@ -219,7 +219,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.76249in</Height>
+    <Height>1.36666in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -312,7 +312,7 @@
           </ReportItems>
           <KeepTogether>true</KeepTogether>
           <Height>3.41405cm</Height>
-          <Width>21.03348cm</Width>
+          <Width>20.66306cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -328,7 +328,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.32021cm</Height>
+      <Height>2.32023cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -427,9 +427,10 @@
             </Textbox>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
+          <Top>0cm</Top>
           <Left>0.01581cm</Left>
           <Height>2.32021cm</Height>
-          <Width>21.01767cm</Width>
+          <Width>20.64725cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

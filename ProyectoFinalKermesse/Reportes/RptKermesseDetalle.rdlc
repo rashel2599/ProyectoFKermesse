@@ -14,7 +14,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.83197cm</Height>
+              <Height>0.91134cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -90,7 +90,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.83197cm</Height>
+              <Height>0.91134cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -166,7 +166,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.83197cm</Height>
+              <Height>0.91134cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -242,7 +242,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.83197cm</Height>
+              <Height>0.91134cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -318,7 +318,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.83197cm</Height>
+              <Height>0.91134cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -418,7 +418,7 @@
         <DataSetName>DsKermesse</DataSetName>
         <Top>0.74963cm</Top>
         <Left>2.56476cm</Left>
-        <Height>4.15985cm</Height>
+        <Height>4.55672cm</Height>
         <Width>17.15645cm</Width>
         <Style>
           <Border>
@@ -628,6 +628,7 @@
             </Image>
           </ReportItems>
           <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+          <Top>0cm</Top>
           <Height>3.15397cm</Height>
           <Width>21.46746cm</Width>
           <Style>
