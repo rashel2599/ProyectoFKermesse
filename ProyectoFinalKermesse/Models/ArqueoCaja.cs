@@ -29,7 +29,7 @@ namespace ProyectoFinalKermesse.Models
         public int kermesse { get; set; }
 
         [Display(Name ="Fecha Arqueo")]
-        [DataType(DataType.DateTime, ErrorMessage ="Por favor ingrese una fecha válida")]
+        [DataType(DataType.Date, ErrorMessage ="Por favor ingrese una fecha válida")]
         public Nullable<System.DateTime> fechaArqueo { get; set; }
 
         [Display(Name = "Gran Total")]

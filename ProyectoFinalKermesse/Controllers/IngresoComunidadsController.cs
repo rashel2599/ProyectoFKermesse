@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -168,7 +169,7 @@ namespace ProyectoFinalKermesse.Controllers
                 ic.producto = ingresoComunidad.producto;
                 ic.cantProducto = ingresoComunidad.cantProducto;
                 ic.totalBonos = ingresoComunidad.totalBonos;
-                ic.usuarioCreacion = ingresoComunidad.usuarioCreacion;
+                ic.usuarioCreacion = Convert.ToInt32(Session["idUsuario"]);
                 ic.fechaCreacion = DateTime.Today;
 
                 db.IngresoComunidad.Add(ic);
@@ -197,6 +198,8 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 return HttpNotFound();
             }
+
+
             ViewBag.comunidad = new SelectList(db.Comunidad, "idComunidad", "nombre", ingresoComunidad.comunidad);
             ViewBag.kermesse = new SelectList(db.Kermesse, "idKermesse", "nombre", ingresoComunidad.kermesse);
             ViewBag.producto = new SelectList(db.Producto, "idProducto", "nombre", ingresoComunidad.producto);
@@ -216,6 +219,7 @@ namespace ProyectoFinalKermesse.Controllers
             if (ModelState.IsValid)
             {
                 ingresoComunidad.fechaModificacion = DateTime.Today;
+                ingresoComunidad.usuarioModificacion = Convert.ToInt32(Session["idUsuario"]);
 
                 db.Entry(ingresoComunidad).State = EntityState.Modified;
                 db.SaveChanges();

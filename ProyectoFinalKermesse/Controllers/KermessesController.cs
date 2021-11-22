@@ -164,7 +164,7 @@ namespace ProyectoFinalKermesse.Controllers
                 k.parroquia = kermesse.parroquia;
                 k.fInicio = kermesse.fInicio;
                 k.fFinal = kermesse.fFinal;
-                k.usuarioCreacion = kermesse.usuarioCreacion;
+                k.usuarioCreacion = Convert.ToInt32(Session["idUsuario"]);
                 k.fechaCreacion = DateTime.Today;
                 k.estado = 1;
 
@@ -192,6 +192,13 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 return HttpNotFound();
             }
+
+            
+            //DateTime da = Convert.ToDateTime(st);
+            ViewBag.Finicio = kermesse.fInicio.ToString("yyyy-MM-dd");
+            ViewBag.Ffinal = kermesse.fFinal.ToString("yyyy-MM-dd");
+            //kermesse.fInicio = new DateTime(2021, 11, 21);
+
             ViewBag.parroquia = new SelectList(db.Parroquia, "idParroquia", "nombre", kermesse.parroquia);
             ViewBag.usuarioCreacion = new SelectList(db.Usuario, "idUsuario", "userName", kermesse.usuarioCreacion);
             ViewBag.usuarioModificacion = new SelectList(db.Usuario, "idUsuario", "userName", kermesse.usuarioModificacion);
@@ -211,6 +218,7 @@ namespace ProyectoFinalKermesse.Controllers
                 
                 kermesse.estado = 2;
                 kermesse.fechaModificacion = DateTime.Today;
+                kermesse.usuarioModificacion = Convert.ToInt32(Session["idUsuario"]);
 
                 db.Entry(kermesse).State = EntityState.Modified;
                 db.SaveChanges();

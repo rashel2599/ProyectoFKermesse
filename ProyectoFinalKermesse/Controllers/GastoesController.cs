@@ -169,7 +169,7 @@ namespace ProyectoFinalKermesse.Controllers
                 g.fechGasto = gasto.fechGasto;
                 g.concepto = gasto.concepto;
                 g.monto = gasto.monto;
-                g.usuarioCreacion = gasto.usuarioCreacion;
+                g.usuarioCreacion = Convert.ToInt32(Session["idUsuario"]);
                 g.fechaCreacion = DateTime.Today;
 
                 db.Gasto.Add(g);
@@ -215,6 +215,7 @@ namespace ProyectoFinalKermesse.Controllers
             if (ModelState.IsValid)
             {
                 gasto.fechaModificacion = DateTime.Today;
+                gasto.usuarioModificacion = Convert.ToInt32(Session["idUsuario"]);
 
                 db.Entry(gasto).State = EntityState.Modified;
                 db.SaveChanges();

@@ -148,6 +148,8 @@ namespace ProyectoFinalKermesse.Controllers
         {
             if (ModelState.IsValid)
             {
+                rol.estado = 1;
+
                 db.Rol.Add(rol);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -180,6 +182,7 @@ namespace ProyectoFinalKermesse.Controllers
         {
             if (ModelState.IsValid)
             {
+                rol.estado = 2;
                 db.Entry(rol).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

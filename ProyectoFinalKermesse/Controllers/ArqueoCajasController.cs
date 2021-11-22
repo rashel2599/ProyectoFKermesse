@@ -157,6 +157,10 @@ namespace ProyectoFinalKermesse.Controllers
         {
             if (ModelState.IsValid)
             {
+                arqueoCaja.fechaCreacion = DateTime.Today;
+                arqueoCaja.fechaArqueo = DateTime.Today;
+                arqueoCaja.usuarioCreacion = Convert.ToInt32(Session["idUsuario"]);
+
                 db.ArqueoCaja.Add(arqueoCaja);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -181,6 +185,9 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.FArqueo = arqueoCaja.fechaArqueo?.ToString("yyyy-MM-dd");
+
             ViewBag.kermesse = new SelectList(db.Kermesse, "idKermesse", "nombre", arqueoCaja.kermesse);
             ViewBag.usuarioCreacion = new SelectList(db.Usuario, "idUsuario", "userName", arqueoCaja.usuarioCreacion);
             ViewBag.usuarioModificacion = new SelectList(db.Usuario, "idUsuario", "userName", arqueoCaja.usuarioModificacion);
@@ -197,6 +204,9 @@ namespace ProyectoFinalKermesse.Controllers
         {
             if (ModelState.IsValid)
             {
+                arqueoCaja.fechaModificacion = DateTime.Today;
+                arqueoCaja.usuarioModificacion = Convert.ToInt32(Session["idUsuario"]);
+
                 db.Entry(arqueoCaja).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

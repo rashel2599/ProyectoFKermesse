@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Editar Kermesse";
     Layout = "~/Views/Shared/_Layout.cshtml";
+//ViewBag.Finicio = "2021-11-24";
 }
 
 <div>
@@ -49,7 +50,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.fInicio, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.fInicio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.fInicio, new { htmlAttributes = new { @class = "form-control", @Value=ViewBag.Finicio } })
             @Html.ValidationMessageFor(model => model.fInicio, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -57,7 +58,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.fFinal, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.fFinal, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.fFinal, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Ffinal } })
             @Html.ValidationMessageFor(model => model.fFinal, "", new { @class = "text-danger" })
         </div>
     </div>
