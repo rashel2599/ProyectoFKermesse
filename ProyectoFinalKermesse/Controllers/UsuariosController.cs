@@ -232,12 +232,22 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            usuario.estado = 3;
+            try
+            {
+                Usuario usuario = db.Usuario.Find(id);
+                usuario.estado = 3;
+                db.Usuario.Remove(usuario);
+                db.SaveChanges();
 
-            db.Usuario.Remove(usuario);
-            db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
+         
         }
 
         protected override void Dispose(bool disposing)

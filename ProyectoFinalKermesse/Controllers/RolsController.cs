@@ -210,9 +210,18 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Rol rol = db.Rol.Find(id);
-            db.Rol.Remove(rol);
-            db.SaveChanges();
+            try
+            {
+                Rol rol = db.Rol.Find(id);
+                db.Rol.Remove(rol);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

@@ -218,9 +218,19 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comunidad comunidad = db.Comunidad.Find(id);
-            db.Comunidad.Remove(comunidad);
-            db.SaveChanges();
+            try
+            {
+                Comunidad comunidad = db.Comunidad.Find(id);
+                db.Comunidad.Remove(comunidad);
+                db.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

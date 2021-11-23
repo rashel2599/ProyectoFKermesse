@@ -222,11 +222,20 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Opcion opcion = db.Opcion.Find(id);
-            opcion.estado = 3;
+            try
+            {
+                Opcion opcion = db.Opcion.Find(id);
+                opcion.estado = 3;
 
-            db.Opcion.Remove(opcion);
-            db.SaveChanges();
+                db.Opcion.Remove(opcion);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

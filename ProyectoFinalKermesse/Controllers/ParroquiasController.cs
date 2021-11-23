@@ -208,9 +208,18 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Parroquia parroquia = db.Parroquia.Find(id);
-            db.Parroquia.Remove(parroquia);
-            db.SaveChanges();
+            try
+            {
+                Parroquia parroquia = db.Parroquia.Find(id);
+                db.Parroquia.Remove(parroquia);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

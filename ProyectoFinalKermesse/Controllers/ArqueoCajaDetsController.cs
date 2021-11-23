@@ -227,9 +227,19 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ArqueoCajaDet arqueoCajaDet = db.ArqueoCajaDet.Find(id);
-            db.ArqueoCajaDet.Remove(arqueoCajaDet);
-            db.SaveChanges();
+            try
+            {
+                ArqueoCajaDet arqueoCajaDet = db.ArqueoCajaDet.Find(id);
+                db.ArqueoCajaDet.Remove(arqueoCajaDet);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+
+            }
+            
             return RedirectToAction("Index");
         }
 

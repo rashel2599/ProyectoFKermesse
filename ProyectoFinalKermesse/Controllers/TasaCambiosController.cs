@@ -20,6 +20,7 @@ namespace ProyectoFinalKermesse.Controllers
             var tasaCambio = from tc in db.TasaCambio select tc; 
                 
             tasaCambio = db.TasaCambio.Include(t => t.Moneda).Include(t => t.Moneda1);
+            tasaCambio = tasaCambio.Where(tc => tc.estado.Equals(2) || tc.estado.Equals(1));
 
             if (!string.IsNullOrEmpty(valorBusq))
             {
@@ -57,11 +58,19 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idTasaCambio,monedaO,monedaC,mes,anio,estado")] TasaCambio tasaCambio)
+        public ActionResult Create(TasaCambio tasaCambio)
         {
             if (ModelState.IsValid)
             {
-                db.TasaCambio.Add(tasaCambio);
+                var tc = new TasaCambio();
+                tc.idTasaCambio = tasaCambio.idTasaCambio;
+                tc.monedaO = tasaCambio.monedaO;
+                tc.monedaC = tasaCambio.monedaC;
+                tc.mes = tasaCambio.mes;
+                tc.anio = tasaCambio.anio;
+                tc.estado = 1;
+
+                db.TasaCambio.Add(tc);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -93,11 +102,20 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idTasaCambio,monedaO,monedaC,mes,anio,estado")] TasaCambio tasaCambio)
+        public ActionResult Edit(TasaCambio tasaCambio)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tasaCambio).State = EntityState.Modified;
+                var tc = new TasaCambio();
+                tc.idTasaCambio = tasaCambio.idTasaCambio;
+                tc.monedaO = tasaCambio.monedaO;
+                tc.monedaC = tasaCambio.monedaC;
+                tc.mes = tasaCambio.mes;
+                tc.anio = tasaCambio.anio;
+                tc.estado = 2;
+
+
+                db.Entry(tc).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -126,9 +144,21 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TasaCambio tasaCambio = db.TasaCambio.Find(id);
-            db.TasaCambio.Remove(tasaCambio);
-            db.SaveChanges();
+            try
+            {
+                TasaCambio tasaCambio = db.TasaCambio.Find(id);
+                tasaCambio.estado = 3;
+                db.TasaCambio.Remove(tasaCambio);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+
+
+            }
+
             return RedirectToAction("Index");
         }
 

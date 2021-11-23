@@ -140,12 +140,21 @@ namespace ProyectoFinalKermesse.Controllers
         {
 
 
-            TasaCambioDet tasaCambioDet = db.TasaCambioDet.Find(id);
-            tasaCambioDet.estado = 3;
+            try
+            {
+                TasaCambioDet tasaCambioDet = db.TasaCambioDet.Find(id);
+                tasaCambioDet.estado = 3;
 
 
-            db.TasaCambioDet.Remove(tasaCambioDet);
-            db.SaveChanges();
+                db.TasaCambioDet.Remove(tasaCambioDet);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

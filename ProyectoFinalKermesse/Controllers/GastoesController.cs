@@ -249,9 +249,19 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Gasto gasto = db.Gasto.Find(id);
-            db.Gasto.Remove(gasto);
-            db.SaveChanges();
+            try
+            {
+                Gasto gasto = db.Gasto.Find(id);
+                db.Gasto.Remove(gasto);
+                db.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

@@ -226,13 +226,23 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CategoriaProducto categoriaProducto = db.CategoriaProducto.Find(id);
-            categoriaProducto.estado = 3;
+            try
+            {
+                CategoriaProducto categoriaProducto = db.CategoriaProducto.Find(id);
+                categoriaProducto.estado = 3;
 
-            db.Entry(categoriaProducto).State = EntityState.Modified;
+                db.Entry(categoriaProducto).State = EntityState.Modified;
 
-            //db.CategoriaProducto.Remove(categoriaProducto);
-            db.SaveChanges();
+                //db.CategoriaProducto.Remove(categoriaProducto);
+                db.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

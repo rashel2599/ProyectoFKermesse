@@ -226,11 +226,20 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Moneda moneda = db.Moneda.Find(id);
-            moneda.estado = 3;
+            try
+            {
+                Moneda moneda = db.Moneda.Find(id);
+                moneda.estado = 3;
 
-            db.Entry(moneda).State = EntityState.Modified;
-            db.SaveChanges();
+                db.Entry(moneda).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

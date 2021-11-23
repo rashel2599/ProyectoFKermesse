@@ -251,12 +251,21 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Kermesse kermesse = db.Kermesse.Find(id);
+            try
+            {
+                Kermesse kermesse = db.Kermesse.Find(id);
 
-            kermesse.estado = 3;
+                kermesse.estado = 3;
 
-            db.Entry(kermesse).State = EntityState.Modified;
-            db.SaveChanges();
+                db.Entry(kermesse).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

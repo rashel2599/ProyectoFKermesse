@@ -22,6 +22,7 @@ namespace ProyectoFinalKermesse.Controllers
             var denominacion = from d in db.Denominacion select d;
 
             denominacion = db.Denominacion.Include(d => d.Moneda1);
+            denominacion = denominacion.Where(d => d.estado.Equals(2) || d.estado.Equals(1));
 
             if (!string.IsNullOrEmpty(valorBusq))
             {
@@ -151,11 +152,20 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idDenominacion,moneda,valor,valorLetras,estado")] Denominacion denominacion)
+        public ActionResult Create(Denominacion denominacion)
         {
             if (ModelState.IsValid)
             {
-                db.Denominacion.Add(denominacion);
+                var d = new Denominacion();
+                d.idDenominacion = denominacion.idDenominacion;
+                d.moneda = denominacion.moneda;
+                d.valor = denominacion.valor;
+                d.valorLetras = denominacion.valorLetras;
+                d.estado = 1;
+
+
+
+                db.Denominacion.Add(d);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -185,11 +195,18 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idDenominacion,moneda,valor,valorLetras,estado")] Denominacion denominacion)
+        public ActionResult Edit(Denominacion denominacion)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(denominacion).State = EntityState.Modified;
+                var d = new Denominacion();
+                d.idDenominacion = denominacion.idDenominacion;
+                d.moneda = denominacion.moneda;
+                d.valor = denominacion.valor;
+                d.valorLetras = denominacion.valorLetras;
+                d.estado = 2;
+
+                db.Entry(d).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -217,9 +234,19 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Denominacion denominacion = db.Denominacion.Find(id);
-            db.Denominacion.Remove(denominacion);
-            db.SaveChanges();
+            try
+            {
+                Denominacion denominacion = db.Denominacion.Find(id);
+                db.Denominacion.Remove(denominacion);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+
+            }
+            
             return RedirectToAction("Index");
         }
 

@@ -238,9 +238,18 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            IngresoComunidadDet ingresoComunidadDet = db.IngresoComunidadDet.Find(id);
-            db.IngresoComunidadDet.Remove(ingresoComunidadDet);
-            db.SaveChanges();
+            try
+            {
+                IngresoComunidadDet ingresoComunidadDet = db.IngresoComunidadDet.Find(id);
+                db.IngresoComunidadDet.Remove(ingresoComunidadDet);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

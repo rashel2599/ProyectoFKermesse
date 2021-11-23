@@ -20,7 +20,9 @@ namespace ProyectoFinalKermesse.Controllers
         public ActionResult Index(string valorBusq="")
         {
             var controlBono = from cb in db.ControlBono select cb;
-            
+            controlBono = controlBono.Where(cb => cb.estado.Equals(2) || cb.estado.Equals(1));
+
+
             if (!string.IsNullOrEmpty(valorBusq))
             {
                 controlBono = controlBono.Where(c => c.nombre.Contains(valorBusq));
@@ -147,11 +149,17 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idBono,nombre,valor,estado")] ControlBono controlBono)
+        public ActionResult Create(ControlBono controlBono)
         {
             if (ModelState.IsValid)
             {
-                db.ControlBono.Add(controlBono);
+                var cb = new ControlBono();
+                cb.idBono = controlBono.idBono;
+                cb.nombre = controlBono.nombre;
+                cb.valor = controlBono.valor;
+                cb.estado = 1;
+
+                db.ControlBono.Add(cb);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -179,11 +187,17 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idBono,nombre,valor,estado")] ControlBono controlBono)
+        public ActionResult Edit(ControlBono controlBono)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(controlBono).State = EntityState.Modified;
+                var cb = new ControlBono();
+                cb.idBono = controlBono.idBono;
+                cb.nombre = controlBono.nombre;
+                cb.valor = controlBono.valor;
+                cb.estado = 2;
+
+                db.Entry(cb).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -210,9 +224,20 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ControlBono controlBono = db.ControlBono.Find(id);
-            db.ControlBono.Remove(controlBono);
-            db.SaveChanges();
+            try
+            {
+                ControlBono controlBono = db.ControlBono.Find(id);
+                controlBono.estado = 3;
+                db.ControlBono.Remove(controlBono);
+                db.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index");
+            }
+            
             return RedirectToAction("Index");
         }
 
