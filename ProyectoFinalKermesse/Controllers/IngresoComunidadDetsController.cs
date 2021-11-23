@@ -27,6 +27,7 @@ namespace ProyectoFinalKermesse.Controllers
                 ingresoComunidadDet = ingresoComunidadDet.Where(c => c.ControlBono.nombre.Contains(valorBusq));
             }
 
+            ViewBag.Rol = Session["rol"];
 
             return View(ingresoComunidadDet.ToList());
         }

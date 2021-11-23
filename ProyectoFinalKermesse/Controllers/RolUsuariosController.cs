@@ -21,14 +21,14 @@ namespace ProyectoFinalKermesse.Controllers
         {
             var rolUsuario = from ru in db.RolUsuario select ru;
 
-            rolUsuario = db.RolUsuario.Include(ru => ru.Rol1).Include(ru => ru.Usuario1);
+            //rolUsuario = db.RolUsuario.Include(ru => ru.Rol1).Include(ru => ru.Usuario1);
 
 
             if (!string.IsNullOrEmpty(valorBusq))
             {
                 rolUsuario = rolUsuario.Where(ru => ru.Usuario1.nombres.Contains(valorBusq));
             }
-
+            ViewBag.Alerta = "Error";
             return View(rolUsuario.ToList());
         }
 
@@ -144,6 +144,7 @@ namespace ProyectoFinalKermesse.Controllers
         // GET: RolUsuarios/Create
         public ActionResult Create()
         {
+
             ViewBag.rol = new SelectList(db.Rol, "idRol", "rolDescripcion");
             ViewBag.usuario = new SelectList(db.Usuario, "idUsuario", "userName");
             return View();
@@ -156,19 +157,35 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(RolUsuario rolUsuario)
         {
+
+            string mensaje = "";
             if (ModelState.IsValid)
             {
-                var ru = new RolUsuario();
-                ru.usuario = rolUsuario.usuario;
-                ru.rol = rolUsuario.rol;
 
-                db.RolUsuario.Add(ru);
-                db.SaveChanges();
+                var rua = (from r in db.RolUsuario where r.usuario== rolUsuario.usuario select r).FirstOrDefault();
+
+                if(rua!=null){
+
+                    ViewBag.Alerta = "";
+                }
+                else
+                {
+                    var ru = new RolUsuario();
+                    ru.usuario = rolUsuario.usuario;
+                    ru.rol = rolUsuario.rol;
+
+                   
+                    db.RolUsuario.Add(ru);
+                    db.SaveChanges();
+                    ViewBag.Alerta = "Error";
+                }
+
                 return RedirectToAction("Index");
             }
 
             ViewBag.rol = new SelectList(db.Rol, "idRol", "rolDescripcion", rolUsuario.rol);
             ViewBag.usuario = new SelectList(db.Usuario, "idUsuario", "userName", rolUsuario.usuario);
+            
             return View(rolUsuario);
         }
 

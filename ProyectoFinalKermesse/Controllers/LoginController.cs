@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinalKermesse.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,15 +31,25 @@ namespace ProyectoFinalKermesse.Controllers
                     var user = (from d in db.Usuario
                                  where d.userName == User.Trim() && d.pwd == Pwd.Trim()
                                  select d).FirstOrDefault();
+
+                    
+
                     if (user == null)
                     {
                         ViewBag.Error = "Usuario o contraseña invalida";
                         return View();
                     }
 
+                    var ru = (from d in db.RolUsuario where d.usuario==user.idUsuario select d).FirstOrDefault();
+
+                    var r = (from ra in db.Rol where ra.idRol==ru.rol select ra).FirstOrDefault();
+
+                    
+
                     Session["User"] = user;
                     Session["Usuario"] = user.userName;
                     Session["idUsuario"] = user.idUsuario;
+                    Session["rol"] = r.rolDescripcion;
 
                 }
 
