@@ -122,7 +122,7 @@
                             <p> @Html.ActionLink("Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
                             <p>@Html.ActionLink("Ingreso de comunidad", "Index", "IngresoComunidads", new { area = "" }, new { @style = "color: #779FA1" })</p>
                             <p>@Html.ActionLink("Detalle de Ingreso de comunidad", "Index", "IngresoComunidadDets", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                           
+
 
 
                         </div>
@@ -149,6 +149,106 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div style="float: left; width:400px; ">
+            <div class="row" style="width: 500px">
+                <div class="col-sm-6 col-md-4" style="width: 400px;">
+                    <div class="thumbnail" style="width:400px">
+                        <img src="~/fonts/Miniaturas/Reportes.png" alt="... ">
+                        <div class="caption">
+                            <h3>Reportes</h3>
+                            <p> En esta sección se encuentra el resumen de reportes </p>
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+                                    &nbsp;
+                                    Resumen de Ingresos y Egresos
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">@Html.ActionLink("Resumen de Ingresos", "VerReporteIngresos", "IngresoComunidads", new { valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+                                    <li><a href="#">@Html.ActionLink("Resumen de Egresos", "VerReporteEgresos", "Gastoes", new { valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+
+
+                                </ul>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+                                    &nbsp;
+                                    Reporte de Ingresos
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">@Html.ActionLink("Comunidad", "VerReporteComunidad", "Comunidads", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+                                    <li><a href="#">@Html.ActionLink("Kermesse", "VerReporteKermesse", "Kermesses", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+
+
+
+
+                                </ul>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+                                    &nbsp;
+                                    Reporte de Egresos
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">@Html.ActionLink("Gastos", "VerReporteGasto", "Gastoes", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+                                    <li><a href="#">@Html.ActionLink("Categoria de Gastos", "VerReporteCatGasto", "CategoriaGastoes", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+
+
+
+
+                                </ul>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+                                    &nbsp;
+                                    Reporte de Lista de Precios
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">@Html.ActionLink("Lista de Precios", "VerReporteListaPrecio", "ListaPrecios", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+                                    <li><a href="#">@Html.ActionLink("Productos", "VerReporteProducto", "Productoes", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+                                    <li><a href="#">@Html.ActionLink("Categoria de Productos", "VerReporteCatProd", "CategoriaProductoes", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+
+
+
+
+                                </ul>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+                                    &nbsp;
+                                    Reporte de Arqueo de caja
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">@Html.ActionLink("Arqueo de Caja", "VerReporteArqueoCaja", "ArqueoCajas", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+                                    <li><a href="#">@Html.ActionLink("Detalle de Arqueo de caja", "VerReporteArqueoCajaDet", "ArqueoCajaDets", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] }, null)</a></li>
+
+
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>

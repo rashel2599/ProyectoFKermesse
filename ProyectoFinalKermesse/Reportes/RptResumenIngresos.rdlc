@@ -2,100 +2,45 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix2">
+      <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.71286cm</Width>
+              <Width>8.85882cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.7541cm</Width>
+              <Width>5.65736cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>10.66794cm</Width>
+              <Width>5.65736cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.93309cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ID</Value>
+                              <Value>Resumen de Ingresos</Value>
                               <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox4">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Nombre</Value>
-                              <Style>
-                                <FontFamily>Roboto </FontFamily>
+                                <FontFamily>Roboto</FontFamily>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox6">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Descripción</Value>
+                              <Value />
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -105,7 +50,73 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Comunidad</Value>
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Kermesse</Value>
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -122,18 +133,24 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.93309cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="idListaPrecio">
+                    <Textbox Name="Cant">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!idListaPrecio.Value</Value>
+                              <Value>C$ </Value>
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!Cant.Value</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
                               </Style>
@@ -142,7 +159,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>idListaPrecio</rd:DefaultName>
+                      <rd:DefaultName>Cant</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -158,14 +175,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nombre">
+                    <Textbox Name="Comunidad">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombre.Value</Value>
+                              <Value>=Fields!Comunidad.Value</Value>
                               <Style>
                                 <FontFamily>Roboto</FontFamily>
                               </Style>
@@ -174,7 +191,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nombre</rd:DefaultName>
+                      <rd:DefaultName>Comunidad</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -190,71 +207,34 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Tablix Name="Tablix1">
-                      <TablixBody>
-                        <TablixColumns>
-                          <TablixColumn>
-                            <Width>10.66794cm</Width>
-                          </TablixColumn>
-                        </TablixColumns>
-                        <TablixRows>
-                          <TablixRow>
-                            <Height>0.93309cm</Height>
-                            <TablixCells>
-                              <TablixCell>
-                                <CellContents>
-                                  <Textbox Name="descripcion">
-                                    <CanGrow>true</CanGrow>
-                                    <KeepTogether>true</KeepTogether>
-                                    <Paragraphs>
-                                      <Paragraph>
-                                        <TextRuns>
-                                          <TextRun>
-                                            <Value>=Fields!descripcion.Value</Value>
-                                            <Style>
-                                              <FontFamily>Roboto</FontFamily>
-                                              <FontWeight>Normal</FontWeight>
-                                            </Style>
-                                          </TextRun>
-                                        </TextRuns>
-                                        <Style />
-                                      </Paragraph>
-                                    </Paragraphs>
-                                    <rd:DefaultName>descripcion</rd:DefaultName>
-                                    <Style>
-                                      <Border>
-                                        <Color>LightGrey</Color>
-                                        <Style>Solid</Style>
-                                      </Border>
-                                      <PaddingLeft>2pt</PaddingLeft>
-                                      <PaddingRight>2pt</PaddingRight>
-                                      <PaddingTop>2pt</PaddingTop>
-                                      <PaddingBottom>2pt</PaddingBottom>
-                                    </Style>
-                                  </Textbox>
-                                </CellContents>
-                              </TablixCell>
-                            </TablixCells>
-                          </TablixRow>
-                        </TablixRows>
-                      </TablixBody>
-                      <TablixColumnHierarchy>
-                        <TablixMembers>
-                          <TablixMember />
-                        </TablixMembers>
-                      </TablixColumnHierarchy>
-                      <TablixRowHierarchy>
-                        <TablixMembers>
-                          <TablixMember />
-                        </TablixMembers>
-                      </TablixRowHierarchy>
-                      <DataSetName>DsListaPrecio</DataSetName>
+                    <Textbox Name="Kermesse">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Kermesse.Value</Value>
+                              <Style>
+                                <FontFamily>Roboto</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Kermesse</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
                         </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                    </Tablix>
+                    </Textbox>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -278,11 +258,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DsListaPrecio</DataSetName>
-        <Top>0.3616cm</Top>
-        <Left>0.88576cm</Left>
-        <Height>1.86618cm</Height>
-        <Width>19.1349cm</Width>
+        <DataSetName>DsIngresoComunidad</DataSetName>
+        <Top>0.75438cm</Top>
+        <Left>0.60537cm</Left>
+        <Height>1.2cm</Height>
+        <Width>20.17354cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -290,30 +270,25 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.38056in</Height>
-    <Style>
-      <Border>
-        <Style>None</Style>
-      </Border>
-    </Style>
+    <Height>2in</Height>
+    <Style />
   </Body>
-  <Width>8.2809in</Width>
+  <Width>8.45176in</Width>
   <Page>
     <PageHeader>
-      <Height>3.41405cm</Height>
+      <Height>3.05245cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Rectangle Name="Rectangle3">
           <ReportItems>
             <Textbox Name="Textbox9">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Lista de Precios</Value>
+                      <Value>Resumen de Ingresos</Value>
                       <Style>
                         <FontFamily>Roboto</FontFamily>
                         <FontSize>20pt</FontSize>
@@ -328,8 +303,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox9</rd:DefaultName>
-              <Top>1.46467cm</Top>
-              <Left>5.3187cm</Left>
+              <Top>1.10307cm</Top>
+              <Left>5.30289cm</Left>
               <Height>1.94938cm</Height>
               <Width>10.51688cm</Width>
               <Style>
@@ -342,8 +317,7 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox5">
-              <CanGrow>true</CanGrow>
+            <Textbox Name="Textbox6">
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -365,8 +339,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>0.42016cm</Top>
-              <Left>6.47912cm</Left>
+              <Top>0.20321cm</Top>
+              <Left>6.35977cm</Left>
               <Height>0.6cm</Height>
               <Width>8.40396cm</Width>
               <ZIndex>1</ZIndex>
@@ -381,9 +355,9 @@
               </Style>
             </Textbox>
           </ReportItems>
-          <KeepTogether>true</KeepTogether>
-          <Height>3.41405cm</Height>
-          <Width>20.55723cm</Width>
+          <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+          <Height>3.05245cm</Height>
+          <Width>21.46746cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -399,14 +373,13 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.32022cm</Height>
+      <Height>3.15397cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Rectangle Name="Rectangle4">
           <ReportItems>
             <Textbox Name="PageNumber">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -424,7 +397,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>1.48208cm</Top>
+              <Top>1.68084cm</Top>
               <Left>15.766cm</Left>
               <Height>0.83812cm</Height>
               <Width>3.95521cm</Width>
@@ -438,22 +411,7 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Image Name="Logo">
-              <Source>Embedded</Source>
-              <Value>Logo</Value>
-              <Sizing>Fit</Sizing>
-              <Top>0.34396cm</Top>
-              <Height>1.97625cm</Height>
-              <Width>3.29917cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
             <Textbox Name="Textbox12">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -481,11 +439,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox12</rd:DefaultName>
-              <Top>1.59167cm</Top>
-              <Left>0.86995cm</Left>
+              <Top>1.79042cm</Top>
+              <Left>1.37266cm</Left>
               <Height>0.72854cm</Height>
               <Width>7.47417cm</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -496,12 +454,26 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Image Name="Image2">
+              <Source>Embedded</Source>
+              <Value>Logo</Value>
+              <Sizing>Fit</Sizing>
+              <Top>0.71438cm</Top>
+              <Left>0.60537cm</Left>
+              <Height>1.80458cm</Height>
+              <Width>3.35208cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
           </ReportItems>
-          <KeepTogether>true</KeepTogether>
+          <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
           <Top>0cm</Top>
-          <Left>0.01581cm</Left>
-          <Height>2.32021cm</Height>
-          <Width>20.54142cm</Width>
+          <Height>3.15397cm</Height>
+          <Width>21.46746cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -518,10 +490,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>0cm</LeftMargin>
-    <RightMargin>0cm</RightMargin>
-    <TopMargin>0cm</TopMargin>
-    <BottomMargin>0cm</BottomMargin>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
@@ -532,41 +504,41 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>21777b06-bbcd-48c6-a8d5-0029607b8a7d</rd:DataSourceID>
+      <rd:DataSourceID>09431a79-4f4f-4b46-90d9-108af91ae662</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DsListaPrecio">
+    <DataSet Name="DsIngresoComunidad">
       <Query>
         <DataSourceName>DsReportes</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="idListaPrecio">
-          <DataField>idListaPrecio</DataField>
+        <Field Name="id">
+          <DataField>id</DataField>
           <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
-        <Field Name="kermesse">
-          <DataField>kermesse</DataField>
+        <Field Name="Kermesse">
+          <DataField>Kermesse</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="nombre">
-          <DataField>nombre</DataField>
+        <Field Name="Comunidad">
+          <DataField>Comunidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="descripcion">
-          <DataField>descripcion</DataField>
+        <Field Name="Producto">
+          <DataField>Producto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="estado">
-          <DataField>estado</DataField>
+        <Field Name="Cant">
+          <DataField>Cant</DataField>
           <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsReportes</rd:DataSetName>
-        <rd:SchemaPath>C:\IAW\ProyectoFinalKermesse\ProyectoFinalKermesse\DataSet\DsReportes.xsd</rd:SchemaPath>
-        <rd:TableName>ListaPrecio</rd:TableName>
+        <rd:SchemaPath>C:\Users\Admin\Downloads\ProyectoFinalKermesse-a49105e2218eb8005ce6c141ccfebd890e9050c9\ProyectoFinalKermesse\DataSet\DsReportes.xsd</rd:SchemaPath>
+        <rd:TableName>VwIngresoComunidad</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -791,5 +763,5 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>17fd5d3a-cf73-466f-8e03-0f6ef6845684</rd:ReportID>
+  <rd:ReportID>94035007-8b18-4db3-b166-2f0c91ef705b</rd:ReportID>
 </Report>

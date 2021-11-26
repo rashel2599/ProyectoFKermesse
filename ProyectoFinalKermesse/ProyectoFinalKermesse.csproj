@@ -541,6 +541,8 @@
     <Content Include="Views\ControlBonoes\VerReporteControlBonoDetalle.cshtml" />
     <Content Include="Views\Rols\VerReporteRol.cshtml" />
     <Content Include="Views\Rols\VerReporteRolDetalle.cshtml" />
+    <Content Include="Views\IngresoComunidads\VerReporteIngresos.cshtml" />
+    <Content Include="Views\Gastoes\VerReporteEgresos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -584,6 +586,8 @@
     <EmbeddedResource Include="Reportes\RptArqueoCaja.rdlc" />
     <EmbeddedResource Include="Reportes\RptRolDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptRol.rdlc" />
+    <EmbeddedResource Include="Reportes\RptResumenIngresos.rdlc" />
+    <EmbeddedResource Include="Reportes\RptResumenEgresos.rdlc" />
     <EmbeddedResource Include="Reportes\RptTasaCambioDetDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptTasaCambioDet.rdlc" />
     <EmbeddedResource Include="Reportes\RptTasaCambioDetalle.rdlc" />

@@ -125,6 +125,55 @@ namespace ProyectoFinalKermesse.Controllers
 
         }
 
+        //Get: VerReportes
+
+        public ActionResult VerReporteEgresos( string valorBusq = "")
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptResumenEgresos.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var vwgasto = from g in db.VwGasto select g;
+
+
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                vwgasto = vwgasto.Where(lp => lp.Concepto.Contains(valorBusq));
+            }
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<VwGasto> listaGas = new List<VwGasto>();
+            listaGas = vwgasto.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsGasto", listaGas);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
 
 
         // GET: Gastoes/Details/5

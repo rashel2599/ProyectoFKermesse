@@ -75,13 +75,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.73932cm</Width>
+              <Width>2.12196cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.17743cm</Width>
+              <Width>5.56007cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>10.96638cm</Width>
+              <Width>10.34902cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -322,9 +322,9 @@
         </TablixRowHierarchy>
         <DataSetName>DsCatProd</DataSetName>
         <Top>0.17639cm</Top>
-        <Left>0.43829cm</Left>
+        <Left>1.70597cm</Left>
         <Height>1.86618cm</Height>
-        <Width>19.88313cm</Width>
+        <Width>18.03105cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

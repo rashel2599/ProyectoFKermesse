@@ -125,6 +125,56 @@ namespace ProyectoFinalKermesse.Controllers
 
         }
 
+        //Get: VerReporteResumen
+
+        public ActionResult VerReporteIngresos(string valorBusq = "")
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptResumenIngresos.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var vwingresoComunidad = from ic in db.VwIngresoComunidad select ic;
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                vwingresoComunidad = vwingresoComunidad.Where(c => c.Comunidad.Contains(valorBusq));
+            }
+
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<VwIngresoComunidad> listaIngCom = new List<VwIngresoComunidad>();
+            listaIngCom = vwingresoComunidad.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsIngresoComunidad", listaIngCom);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+
+
+        }
+
 
         // GET: IngresoComunidads/Details/5
         public ActionResult Details(int? id)
