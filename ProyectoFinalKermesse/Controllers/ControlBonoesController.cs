@@ -29,7 +29,7 @@ namespace ProyectoFinalKermesse.Controllers
             }
 
 
-
+            ViewBag.Rol = Session["rol"];
             return View(controlBono.ToList());
         }
 

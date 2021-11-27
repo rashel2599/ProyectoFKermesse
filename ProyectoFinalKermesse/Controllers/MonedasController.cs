@@ -28,7 +28,7 @@ namespace ProyectoFinalKermesse.Controllers
                 moneda = moneda.Where(m => m.nombre.Contains(valorBusq));
             }
 
-
+            ViewBag.Rol = Session["rol"];
             return View(moneda.ToList());
         }
 

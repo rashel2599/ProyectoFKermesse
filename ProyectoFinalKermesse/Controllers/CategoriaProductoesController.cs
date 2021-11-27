@@ -28,6 +28,7 @@ namespace ProyectoFinalKermesse.Controllers
                 categoriaProducto = categoriaProducto.Where(ca => ca.nombre.Contains(valorBusq));
             }
 
+            ViewBag.Rol = Session["rol"];
             return View(categoriaProducto.ToList());
         }
 

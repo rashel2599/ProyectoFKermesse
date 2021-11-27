@@ -45,7 +45,7 @@
 
 <div class="container">
     <div style="margin:auto">
-
+        @if (ViewBag.Rol == "Administrador" || ViewBag.Rol == "Contador") { 
         <div style="float: left; width:400px; ">
             <div class="row" style="width: 500px">
                 <div class="col-sm-6 col-md-4" style="width: 400px;">
@@ -68,7 +68,7 @@
             </div>
 
         </div>
-
+        }
         <div style="float: left; width: 400px">
             <div class="row" style="width:500px">
                 <div class="col-sm-6 col-md-4" style="width:400px">
@@ -108,49 +108,53 @@
                 </div>
             </div>
         </div>
+        @if (ViewBag.Rol == "Administrador" || ViewBag.Rol == "Contador")
+        {
+            <div style="float: left; width: 400px">
+                <div class="row" style="width:400px">
+                    <div class="col-sm-6 col-md-4" style="width:400px">
+                        <div class="thumbnail" style="width:400px">
+                            <img src="~/fonts/Miniaturas/ControlGasto.png" alt="...">
+                            <div class="caption">
+                                <h3>Control de Gasto</h3>
+                                <p> En esta sección se encuentran todas las tablas relacionadas con el control de gasto </p>
 
-        <div style="float: left; width: 400px">
-            <div class="row" style="width:400px">
-                <div class="col-sm-6 col-md-4" style="width:400px">
-                    <div class="thumbnail" style="width:400px">
-                        <img src="~/fonts/Miniaturas/ControlGasto.png" alt="...">
-                        <div class="caption">
-                            <h3>Control de Gasto</h3>
-                            <p> En esta sección se encuentran todas las tablas relacionadas con el control de gasto </p>
-
-                            <p>@Html.ActionLink("Gastos", "Index", "Gastoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p> @Html.ActionLink("Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Ingreso de comunidad", "Index", "IngresoComunidads", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Detalle de Ingreso de comunidad", "Index", "IngresoComunidadDets", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                                <p>@Html.ActionLink("Gastos", "Index", "Gastoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                                <p> @Html.ActionLink("Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                                <p>@Html.ActionLink("Ingreso de comunidad", "Index", "IngresoComunidads", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                                <p>@Html.ActionLink("Detalle de Ingreso de comunidad", "Index", "IngresoComunidadDets", new { area = "" }, new { @style = "color: #779FA1" })</p>
 
 
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
 
-        <div style="float: left; width: 400px">
-            <div class="row" style="width:400px">
-                <div class="col-sm-6 col-md-4" style="width:400px">
-                    <div class="thumbnail" style="width:400px">
-                        <img src="~/fonts/Miniaturas/GestionUsuario.png" alt="...">
-                        <div class="caption">
-                            <h3>Gestión de Usuarios</h3>
-                            <p> En esta sección se encuentran todas las tablas relacionadas con la gestión de usuarios </p>
-                            <p>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Opciones", "Index", "Opcions", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Rol", "Index", "Rols", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Rol Opcion", "Index", "RolOpcions", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Rol Usuarios", "Index", "RolUsuarios", new { area = "" }, new { @style = "color: #779FA1" })</p>
+        @if (ViewBag.Rol == "Administrador")
+        {
+            <div style="float: left; width: 400px">
+                <div class="row" style="width:400px">
+                    <div class="col-sm-6 col-md-4" style="width:400px">
+                        <div class="thumbnail" style="width:400px">
+                            <img src="~/fonts/Miniaturas/GestionUsuario.png" alt="...">
+                            <div class="caption">
+                                <h3>Gestión de Usuarios</h3>
+                                <p> En esta sección se encuentran todas las tablas relacionadas con la gestión de usuarios </p>
+                                <p>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                                <p>@Html.ActionLink("Opciones", "Index", "Opcions", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                                <p>@Html.ActionLink("Rol", "Index", "Rols", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                                <p>@Html.ActionLink("Rol Opcion", "Index", "RolOpcions", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                                <p>@Html.ActionLink("Rol Usuarios", "Index", "RolUsuarios", new { area = "" }, new { @style = "color: #779FA1" })</p>
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
+        }
         <div style="float: left; width:400px; ">
             <div class="row" style="width: 500px">
                 <div class="col-sm-6 col-md-4" style="width: 400px;">

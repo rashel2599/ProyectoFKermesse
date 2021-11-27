@@ -27,7 +27,7 @@ namespace ProyectoFinalKermesse.Controllers
                 tasadt = tasadt.Where(tdt => tdt.tasaCambio.Contains(valorB));
             }*/
 
-
+            ViewBag.Rol = Session["rol"];
             return View(tasadt.ToList());
         }
 
@@ -90,6 +90,8 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Fecha = tasaCambioDet.fecha.ToString("yyyy-MM-dd");
             ViewBag.tasaCambio = new SelectList(db.TasaCambio, "idTasaCambio", "mes", tasaCambioDet.tasaCambio);
             return View(tasaCambioDet);
         }

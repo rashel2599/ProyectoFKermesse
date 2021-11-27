@@ -28,12 +28,12 @@
     <hr />
     @using (Html.BeginForm())
     {
-<div class="container">
-    <p>
-        Buscar por nombre: @Html.TextBox("valorBusq")
-        <input type="submit" value="Buscar" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" />
-    </p>
-</div>}
+        <div class="container">
+            <p>
+                Buscar por nombre: @Html.TextBox("valorBusq")
+                <input type="submit" value="Buscar" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" />
+            </p>
+        </div>}
 
     <div class="dropdown" style=" left: 1000px">
         <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -94,81 +94,85 @@
 
         @foreach (var item in Model)
         {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.nombre)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.fInicio)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.fFinal)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.descripcion)
-    </td>
-    @*<td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>*@
-    <td>
-        @Html.DisplayFor(modelItem => item.fechaCreacion)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.fechaModificacion)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.fechaEliminacion)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Parroquia1.nombre)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Usuario.userName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Usuario1.userName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Usuario2.userName)
-    </td>
-    <td>
-        <button class="btn">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
-            @Html.ActionLink("Editar", "Edit", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
-        </button>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fFinal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaCreacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaModificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaEliminacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parroquia1.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario1.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario2.userName)
+                </td>
+                <td>
+                    @if (ViewBag.Rol == "Administrador" || ViewBag.Rol == "Párroco")
+                    {
+                        <button class="btn">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
+                        </button>
 
-        <button class="btn">
-            <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
-            @Html.ActionLink("Detalles", "Details", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
-        </button>
+                        <button class="btn">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                            @Html.ActionLink("Detalles", "Details", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
+                        </button>
 
-        <button class="btn">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
-            @Html.ActionLink("Eliminar", "Delete", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
-        </button>
-
-        <button class="btn">
-            <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
-            @Html.ActionLink("Ver Reporte", "VerReporteKermesseDetalle", new { id = item.idKermesse }, new { @style = "color: #779FA1" })
-        </button>
-
-     
+                        <button class="btn">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idKermesse }, new { @style = "color: #779FA1;" })
+                        </button>
+                    }
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
+                        @Html.ActionLink("Ver Reporte", "VerReporteKermesseDetalle", new { id = item.idKermesse }, new { @style = "color: #779FA1" })
+                    </button>
 
 
-    </td>
 
-</tr>
-}
+
+                </td>
+
+            </tr>
+        }
 
     </table>
 
     <hr />
+    @if (ViewBag.Rol == "Administrador" || ViewBag.Rol == "Párroco")
+    {
+        <p>
 
-    <p>
-        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
-            @Html.ActionLink("Agregar nuevo", "Create", "Kermesses", new { @style = "color:white;" })
-            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
-        </button>
-    </p>
-
-</div>
+            <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+                @Html.ActionLink("Agregar nuevo", "Create", "Kermesses", new { @style = "color:white;" })
+                <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+            </button>
+        </p>
+    }
+    </div>

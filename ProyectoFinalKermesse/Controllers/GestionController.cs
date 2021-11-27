@@ -11,6 +11,7 @@ namespace ProyectoFinalKermesse.Controllers
         // GET: Gestion
         public ActionResult Index()
         {
+            ViewBag.Rol = Session["rol"];
             return View();
         }
     }

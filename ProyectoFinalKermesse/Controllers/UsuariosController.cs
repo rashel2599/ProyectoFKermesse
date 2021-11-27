@@ -27,7 +27,7 @@ namespace ProyectoFinalKermesse.Controllers
                 user = user.Where(us => us.nombres.Contains(valorB));
             }
 
-
+            ViewBag.Rol = Session["rol"];
             return View(user.ToList());
         }
 

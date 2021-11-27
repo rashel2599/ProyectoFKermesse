@@ -29,6 +29,8 @@ namespace ProyectoFinalKermesse.Controllers
                 gasto = gasto.Where(lp => lp.concepto.Contains(valorBusq));
             }
 
+
+            ViewBag.Rol = Session["rol"];
             return View(gasto.ToList());
         }
 

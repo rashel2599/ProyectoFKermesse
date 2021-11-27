@@ -29,7 +29,7 @@ namespace ProyectoFinalKermesse.Controllers
                 listaPrecio = listaPrecio.Where(lp => lp.nombre.Contains(valorBusq));
             }
 
-            
+            ViewBag.Rol = Session["rol"];
             return View(listaPrecio.ToList());
         }
 

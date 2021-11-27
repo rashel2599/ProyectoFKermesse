@@ -29,6 +29,7 @@ namespace ProyectoFinalKermesse.Controllers
                 rolUsuario = rolUsuario.Where(ru => ru.Usuario1.nombres.Contains(valorBusq));
             }
             ViewBag.Alerta = "Error";
+            ViewBag.Rol = Session["rol"];
             return View(rolUsuario.ToList());
         }
 

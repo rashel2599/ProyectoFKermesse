@@ -27,6 +27,7 @@ namespace ProyectoFinalKermesse.Controllers
                 tasaCambio = tasaCambio.Where(t => t.mes.Contains(valorBusq));
             }
 
+            ViewBag.Rol = Session["rol"];
             return View(tasaCambio.ToList());
         }
 

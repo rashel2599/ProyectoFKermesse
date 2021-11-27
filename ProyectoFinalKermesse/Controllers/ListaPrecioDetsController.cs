@@ -27,7 +27,7 @@ namespace ProyectoFinalKermesse.Controllers
                 listaPrecioDet = listaPrecioDet.Where(l => l.ListaPrecio1.nombre.Contains(valorBusq));
             }
 
-
+            ViewBag.Rol = Session["rol"];
             return View(listaPrecioDet.ToList());
         }
         //Get: VerReportes

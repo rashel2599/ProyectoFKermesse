@@ -29,6 +29,7 @@ namespace ProyectoFinalKermesse.Controllers
                 denominacion = denominacion.Where(d => d.Moneda1.nombre.Contains(valorBusq));
             }
 
+            ViewBag.Rol = Session["rol"];
             return View(denominacion.ToList());
         }
         //Get: VerReportes

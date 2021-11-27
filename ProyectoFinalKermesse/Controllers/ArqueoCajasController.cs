@@ -27,7 +27,7 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 arqueoCaja = arqueoCaja.Where(a => a.Kermesse1.nombre.Contains(valorBusq));
             }
-
+            ViewBag.Rol = Session["rol"];
             return View(arqueoCaja.ToList());
         }
 

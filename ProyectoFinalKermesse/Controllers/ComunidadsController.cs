@@ -27,6 +27,7 @@ namespace ProyectoFinalKermesse.Controllers
                 comunidad = comunidad.Where(c => c.nombre.Contains(valorBusq));
             }
 
+            ViewBag.Rol = Session["rol"];
             return View(comunidad.ToList());
         }
 

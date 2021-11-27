@@ -45,18 +45,11 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            @if (Session["rol"] == "Vendedor")
-            {
+            
                 <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteIngresoComunidadDet", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
                 <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteIngresoComunidadDet", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
                 <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteIngresoComunidadDet", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
-            }
-            else
-            {
-                <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteIngresoComunidadDet", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
-            }
-
-
+       
         </ul>
     </div>
     <hr />
@@ -100,24 +93,17 @@
                 </td>
                 <td>
 
-                    @if (ViewBag.Rol == "Vendedor")
-                    {
-                        @Html.ActionLink("Editar", "Edit", new { id = item.idIngresoComunidadDet }, new { @style = "color: #779FA1;" })
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
-                <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
-                @Html.ActionLink("Detalles", "Details", new { id = item.idIngresoComunidadDet }, new { @style = "color: #779FA1;" }) 
-                <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.idIngresoComunidadDet }, new { @style = "color: #779FA1;" }) 
-                <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
-                @Html.ActionLink("Ver Reporte ", "VerReporteIngresoComunidadDetDetalle", new { id = item.idIngresoComunidadDet }, new { @style = "color: #779FA1;" })
-                }
-                else
-                {
-                
+                    
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idIngresoComunidadDet }, new { @style = "color: #779FA1;" })
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idIngresoComunidadDet }, new { @style = "color: #779FA1;" }) 
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idIngresoComunidadDet }, new { @style = "color: #779FA1;" }) 
                     <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
                     @Html.ActionLink("Ver Reporte ", "VerReporteIngresoComunidadDetDetalle", new { id = item.idIngresoComunidadDet }, new { @style = "color: #779FA1;" })
-                }
-
+                
+                
 
                 </td>
             </tr>
@@ -129,12 +115,12 @@
 
     <p>
 
-        @if (ViewBag.Rol=="Vendedor"){
-            <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
-                @Html.ActionLink("Agregar nuevo", "Create", "IngresoComunidadDets", new { @style = "color:white;" })
-                <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
-            </button>
-        }
+        
+        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+            @Html.ActionLink("Agregar nuevo", "Create", "IngresoComunidadDets", new { @style = "color:white;" })
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+        </button>
+        
         
     </p>
 

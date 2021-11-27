@@ -25,7 +25,7 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 parroquia = parroquia.Where(pa => pa.nombre.Contains(valorB));
             }
-
+            ViewBag.Rol = Session["rol"];
             return View(parroquia.ToList());
         }
 

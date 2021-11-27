@@ -27,8 +27,8 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 arqueoCajaDet = arqueoCajaDet.Where(a => a.Moneda1.nombre.Contains(valorBusq));
             }
-            
-            
+
+            ViewBag.Rol = Session["rol"];
             return View(arqueoCajaDet.ToList());
         }
 

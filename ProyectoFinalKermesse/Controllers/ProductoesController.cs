@@ -30,7 +30,7 @@ namespace ProyectoFinalKermesse.Controllers
                 producto = producto.Where(p => p.nombre.Contains(valorBusq));
             }
 
-
+            ViewBag.Rol = Session["rol"];
             return View(producto.ToList());
         }
 

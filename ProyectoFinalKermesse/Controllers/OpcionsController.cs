@@ -27,7 +27,7 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 opciones = opciones.Where(op => op.opcionDescripcion.Contains(valorB));
             }
-
+            ViewBag.Rol = Session["rol"];
             return View(opciones.ToList());
         }
 

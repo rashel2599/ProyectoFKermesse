@@ -45,9 +45,9 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteListaPrecio", new { tipo = "PDF" , valorBusq = Request.Form["ValorBusq"] })</a></li>
-                <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteListaPrecio", new { tipo = "Excel" , valorBusq = Request.Form["ValorBusq"] })</a></li>
-                <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteListaPrecio", new { tipo = "Word" , valorBusq = Request.Form["ValorBusq"] })</a></li>
+                <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteListaPrecio", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
+                <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteListaPrecio", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
+                <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteListaPrecio", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
 
             </ul>
         </div>
@@ -86,12 +86,15 @@
                         @Html.DisplayFor(modelItem => item.Kermesse1.nombre)
                     </td>
                     <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
-                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
-                        @Html.ActionLink("Detalles", "Details", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" }) |
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })|
+                        @if (ViewBag.Rol == "Administrador" || ViewBag.Rol == "Vendedor")
+                        {
+                            @Html.ActionLink("Editar", "Edit", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                            @Html.ActionLink("Detalles", "Details", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })
+                        }
                         <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
                         @Html.ActionLink("Ver Reporte", "VerReporteListaPrecioDetalle", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })
                     </td>
@@ -101,11 +104,13 @@
         </table>
 
         <hr />
-
-        <p>
-            <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
-                @Html.ActionLink("Agregar nuevo", "Create", "ListaPrecios", new { @style = "color:white;" })
-                <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
-            </button>
-        </p>
-    </div> 
+        @if (ViewBag.Rol == "Administrador" || ViewBag.Rol == "Vendedor")
+        {
+            <p>
+                <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+                    @Html.ActionLink("Agregar nuevo", "Create", "ListaPrecios", new { @style = "color:white;" })
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+                </button>
+            </p>
+        }
+        </div> 

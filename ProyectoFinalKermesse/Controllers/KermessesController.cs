@@ -27,6 +27,8 @@ namespace ProyectoFinalKermesse.Controllers
             {
                 kermesse = kermesse.Where(k => k.nombre.Contains(valorBusq));
             }
+
+            ViewBag.Rol = Session["rol"];
             return View(kermesse.ToList());
         }
 
