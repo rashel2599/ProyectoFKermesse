@@ -22,9 +22,10 @@
 
 
             </div>
-
-            <h3 style="text-align:right; right:100px; font-family:Roboto; color: #779FA1; font-size: 16px ">@Session["Usuario"]</h3>
-
+            <div style="float: right; border-top: 10px" >
+                <button style=" font-family: Roboto; background: none; block-size: 50px; border:none; color: #779FA1; font-size: 18px ">@Session["Usuario"]</button>
+                <button style=" font-family: Roboto; background: none; block-size: 50px; border: none; color: #779FA1; font-size: 18px ">@Session["rol"]</button>
+            </div>
         </div>
     </div>
     @RenderBody()
